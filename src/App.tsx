@@ -57,7 +57,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div>
+      {/* <div>
         <ContainerMovies>
           {movies && movies.map((movie: Movies) => {
             return (
@@ -68,7 +68,7 @@ function App() {
             )
           })}
         </ContainerMovies>
-      </div>
+      </div> */}
     </>
   )
 }

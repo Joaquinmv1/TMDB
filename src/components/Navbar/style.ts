@@ -8,11 +8,30 @@ export const Header = styled.header`
   width: 100%;
 `
 
-export const FullViewportImage = styled.img`
+export const FullViewportImage = styled.div`
+  position: relative;
   width: 100%;
   max-height: 80vh;
   object-fit: cover;
   aspect-ratio: 16/9;
+  overflow: hidden;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1));
+  }
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 `;
 
 export const Overlay = styled.div`
@@ -25,7 +44,7 @@ export const Overlay = styled.div`
 
 export const Nav = styled.nav<{ scrolled: boolean }>`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem;
   position: fixed;
@@ -36,27 +55,52 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   z-index: 100;
   color: #fff;
   transition: background-color 0.3s ease;
-
+  
   ${({ scrolled }) =>
     scrolled &&
     `
     background-color: rgb(0, 0, 0);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  
   `}
+  
+
+&::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  }
 
   & h2 {
     cursor: pointer;
   }
-  
-  & input{
-    padding: 10px;
-    font-weight: bold;
-    color: #fff;
-    background-color: transparent;
-  }
+`
+
+export const NavBarLeft = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`
+
+export const NavBarRight = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `
 
 export const Ul = styled.ul`
   display: flex;
   gap: 20px;
+`
+
+export const InputSearch = styled.input`
+  background-color: transparent;
+  font-weight: bold;
+  color: #fff;
+  border: none;
 `

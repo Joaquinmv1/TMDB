@@ -1,54 +1,48 @@
-import { useEffect, useState } from "react";
-import { CarouselContainer, FullViewportImage, Header, Nav, Overlay, Ul } from './style';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { CarouselContainer, FullViewportImage, Header, InputSearch, Nav, NavBarLeft, NavBarRight, Overlay, Ul } from './style';
+import { useScroll } from "../../hooks";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
-      setScrolled(scrollTop > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const scroll = useScroll();
 
   const images = [
+    'onepiece.png',
     'Dibujo sin título (1).svg',
     'SPIDERMAN.png',
-    'onepiece.png'
   ];
-
 
   return (
     <CarouselContainer>
       <Header>
-        <Swiper centeredSlides={true} autoplay={{ delay: 3000, disableOnInteraction: false }}>
+        <Swiper centeredSlides={true} autoplay={true}>
           {images.map((image, index) => {
             return (
               <SwiperSlide key={index}>
-                <FullViewportImage src={image} alt={`Slide ${index}`} />
+                <FullViewportImage>
+                  <img src={image} alt={`Slide ${index}`} />
+                </FullViewportImage>
               </SwiperSlide>
             );
           })}
         </Swiper>
         <Overlay />
-        <Nav scrolled={scrolled}>
-          <h2>PicturePandemonium</h2>
-          <Ul>
-            <li>Home</li>
-            <li>Movies</li>
-            <li>Series</li>
-            <li>Anime</li>
-            <li>Contacto</li>
-          </Ul>
-          <input type="text" placeholder="Marvel, Naruto, Spider Man..." />
+        <Nav scrolled={scroll}>
+          <NavBarLeft>
+            <h2>PicturePandemonium</h2>
+            <Ul>
+              <li>Home</li>
+              <li>Movies</li>
+              <li>Series</li>
+              <li>Anime</li>
+              <li>Contacto</li>
+            </Ul>
+          </NavBarLeft>
+          <NavBarRight>
+            <AiOutlineSearch />
+            <InputSearch type="text" placeholder="Marvel, Naruto, Spider Man..." />
+          </NavBarRight>
         </Nav>
       </Header>
     </CarouselContainer>
