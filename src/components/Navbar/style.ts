@@ -61,20 +61,18 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
     `
     background-color: rgb(0, 0, 0);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-  
   `}
-  
 
-&::before {
-    content: "";
-    position: absolute;
-    top: -4px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-  }
+  &::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    }
 
   & h2 {
     cursor: pointer;

@@ -8,8 +8,14 @@
 
 body {
   background-color: rgb(17, 17, 17);
+  color: #fff;
 }
 
 li {
   list-style: none;
+}
+
+.swiper-container {
+  margin: 0;
+  gap: 10px;
 }

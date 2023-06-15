@@ -1,23 +1,32 @@
 import { AiOutlineSearch } from 'react-icons/ai';
-import { CarouselContainer, FullViewportImage, Header, InputSearch, Nav, NavBarLeft, NavBarRight, Overlay, Ul } from './style';
+import { CarouselContainer, FullViewportImage, Header, InputSearch, Nav, NavBarLeft, NavBarRight, Ul } from './style';
 import { useScroll } from "../../hooks";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { imageCarrousel } from '../../constants/images';
+import { Autoplay, Pagination } from 'swiper';
+import { useState } from 'react';
 
 export default function Navbar() {
   const scroll = useScroll();
-
-  const images = [
-    'onepiece.png',
-    'Dibujo sin título (1).svg',
-    'SPIDERMAN.png',
-  ];
+  // const swiper = useSwiper();
 
   return (
     <CarouselContainer>
       <Header>
-        <Swiper centeredSlides={true} autoplay={true}>
-          {images.map((image, index) => {
+        <Swiper
+          navigation
+          modules={[Pagination, Autoplay]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false
+          }}
+          pagination={{ clickable: true }}
+          slidesPerView={1}
+        >
+          {imageCarrousel.map((image, index) => {
             return (
               <SwiperSlide key={index}>
                 <FullViewportImage>
@@ -27,7 +36,6 @@ export default function Navbar() {
             );
           })}
         </Swiper>
-        <Overlay />
         <Nav scrolled={scroll}>
           <NavBarLeft>
             <h2>PicturePandemonium</h2>
