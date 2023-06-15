@@ -30,7 +30,7 @@ function App() {
   const [movies, setMovies] = useState<Array<Movies>>([]);
 
   const getMovies = async () => {
-    const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=anime`);
+    const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=dragonball`);
     const json = await res.json();
     setMovies(json.results);
   }
@@ -43,7 +43,7 @@ function App() {
     <>
       <Navbar />
       <NewPremiersContainer>
-        <h2>Estrenos recientes</h2>
+        <h2>Ultimos Estrenos</h2>
         <Swiper
           navigation
           slidesPerView={9}

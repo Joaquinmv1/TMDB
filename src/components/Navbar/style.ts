@@ -10,7 +10,7 @@ export const Header = styled.header`
 
 export const Overlay = styled.div`
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 10%;
   width: 100%;
   height: 100%;
@@ -56,11 +56,16 @@ export const FullViewportImage = styled.div`
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1));
   }
 
-  & img {
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+  }
+
+  p{
+    width: 500px;
+    font-size: 1rem;
   }
 `;
 

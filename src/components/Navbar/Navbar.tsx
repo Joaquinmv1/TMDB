@@ -8,10 +8,16 @@ import 'swiper/css/pagination';
 import { imageCarrousel } from '../../constants/images';
 // import { Autoplay, Pagination } from 'swiper';
 import { useState } from 'react';
+import { Modal } from '..';
 
 export default function Navbar() {
   const scroll = useScroll();
   const [currentImage, setCurrentImage] = useState(imageCarrousel[0]);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleVisibleClick = () => {
+    setIsVisible(!isVisible)
+  }
 
   return (
     <CarouselContainer>
@@ -32,9 +38,14 @@ export default function Navbar() {
                 <FullViewportImage>
                   <img src={image.image} alt={`Slide ${index}`} />
                   <Overlay>
+                    <Modal
+                      currentImage={currentImage}
+                      isVisible={isVisible}
+                      handleVisibleClick={handleVisibleClick}
+                    />
                     <h3>{currentImage.name}</h3>
                     <p>{currentImage.description}</p>
-                    <button>Ver mas</button>
+                    <button onClick={handleVisibleClick}>Ver mas</button>
                   </Overlay>
                 </FullViewportImage>
               </SwiperSlide>

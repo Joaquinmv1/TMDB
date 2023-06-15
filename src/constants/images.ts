@@ -1,7 +1,7 @@
 export const imageCarrousel = [
   {
     name: 'One Piece',
-    description: 'Description for One Piece',
+    description: 'One Piece narra la historia de un joven llamado Monkey D. Luffy, que inspirado por su amigo pirata Shanks, comienza un viaje para alcanzar su sueño, ser el Rey de los piratas, para lo cual deberá encontrar el tesoro One Piece dejado por el anterior rey de los piratas Gol D. Roger.',
     image: 'onepiece.jpg'
   },
   {
