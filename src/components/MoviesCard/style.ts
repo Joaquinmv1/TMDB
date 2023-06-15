@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const ContainerMovies = styled.ul`
-  width: 80%;
+  width: 90%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
   gap: 20px;
@@ -14,11 +14,13 @@ export const ContainerMoviesLi = styled.li`
     flex-direction: column;
     align-items: center;
     gap: 10px;
-
+    
     & img {
-    width: 350px;
+    box-shadow: 0px 0px 30px #000;
+    width: 100%;
     height:450px;
     object-fit: cover;
+    border-radius: 8px;
   }
 
   & h3{

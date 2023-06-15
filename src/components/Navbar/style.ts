@@ -8,6 +8,35 @@ export const Header = styled.header`
   width: 100%;
 `
 
+export const Overlay = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow:wrap column;
+  gap: 10px;
+  color: white;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+
+  h3 {
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  button{
+    width: 100px;
+    padding: .5rem;
+    border: none;
+    cursor: pointer;
+  }
+`;
+
 export const FullViewportImage = styled.div`
   position: relative;
   width: 100%;
@@ -15,6 +44,7 @@ export const FullViewportImage = styled.div`
   object-fit: cover;
   aspect-ratio: 16/9;
   overflow: hidden;
+  z-index: 100;
   
   &::before {
     content: "";
@@ -32,14 +62,6 @@ export const FullViewportImage = styled.div`
     object-fit: cover;
     object-position: center;
   }
-`;
-
-export const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 `;
 
 export const Nav = styled.nav<{ scrolled: boolean }>`

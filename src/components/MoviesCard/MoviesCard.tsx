@@ -15,6 +15,7 @@ interface MoviesProps {
 export const MoviesCard = ({movies}: MoviesProps) => {
   return (
     <div>
+      
       <ContainerMovies>
         {movies && movies.map((movie: Movies) => {
           return (
