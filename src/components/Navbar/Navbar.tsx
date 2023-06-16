@@ -32,7 +32,7 @@ export default function Navbar() {
                 <FullViewportImage>
                   <img src={image.image} alt={`Slide ${index}`} />
                   <Overlay>
-                    <h3>{currentImage.name}</h3>
+                     <h3>{currentImage.name}</h3>
                     <p>{currentImage.description}</p>
                     <button onClick={handleVisibleClick}>Ver mas</button>
                   </Overlay>

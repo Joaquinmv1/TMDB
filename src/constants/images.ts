@@ -22,3 +22,4 @@ export const imageCarrousel = [
 ];
 
 
+export const categoriesCarrousel = ['ultimos estrenos', 'Anime', 'Películas', 'Series']
