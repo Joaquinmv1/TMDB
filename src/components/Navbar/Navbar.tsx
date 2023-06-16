@@ -6,14 +6,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { imageCarrousel } from '../../constants/images';
-// import { Autoplay, Pagination } from 'swiper';
-import { useState } from 'react';
 import { Modal } from '..';
+import { useState } from 'react';
 
 export default function Navbar() {
-  const scroll = useScroll();
   const [currentImage, setCurrentImage] = useState(imageCarrousel[0]);
   const [isVisible, setIsVisible] = useState(false);
+  const scroll = useScroll();
 
   const handleVisibleClick = () => {
     setIsVisible(!isVisible)
@@ -23,11 +22,6 @@ export default function Navbar() {
     <CarouselContainer>
       <Header>
         <Swiper
-          // modules={[Pagination, Autoplay]}
-          // autoplay={{
-          //   delay: 5000,
-          //   disableOnInteraction: false
-          // }}
           pagination={{ clickable: true }}
           slidesPerView={1}
           onSlideChange={(swiper) => setCurrentImage(imageCarrousel[swiper.activeIndex])}
@@ -38,11 +32,6 @@ export default function Navbar() {
                 <FullViewportImage>
                   <img src={image.image} alt={`Slide ${index}`} />
                   <Overlay>
-                    <Modal
-                      currentImage={currentImage}
-                      isVisible={isVisible}
-                      handleVisibleClick={handleVisibleClick}
-                    />
                     <h3>{currentImage.name}</h3>
                     <p>{currentImage.description}</p>
                     <button onClick={handleVisibleClick}>Ver mas</button>
@@ -52,6 +41,11 @@ export default function Navbar() {
             );
           })}
         </Swiper>
+        <Modal
+          currentImage={currentImage}
+          isVisible={isVisible}
+          handleVisibleClick={handleVisibleClick}
+        />
         <Nav scrolled={scroll}>
           <NavBarLeft>
             <h2>PicturePandemonium</h2>

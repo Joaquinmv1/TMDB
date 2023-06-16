@@ -12,10 +12,9 @@ interface MoviesProps {
   movies: Array<Movies>
 }
 
-export const MoviesCard = ({movies}: MoviesProps) => {
+export const MoviesCard = ({ movies }: MoviesProps) => {
   return (
-    <div>
-      
+    <>
       <ContainerMovies>
         {movies && movies.map((movie: Movies) => {
           return (
@@ -26,7 +25,7 @@ export const MoviesCard = ({movies}: MoviesProps) => {
           )
         })}
       </ContainerMovies>
-    </div>
+    </>
   )
 }
 
