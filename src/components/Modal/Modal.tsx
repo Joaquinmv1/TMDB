@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ContainerModal, ModalContent } from "./styles";
 
@@ -25,14 +24,6 @@ export default function Modal({
     visible: { opacity: 2 },
     exit: { opacity: 0 }
   };
-
-  useEffect(() => {
-    if (isVisible) {
-      document.body.classList.add("modal-open");
-    } else {
-      document.body.classList.remove("modal-open");
-    }
-  }, [isVisible]);
 
   return (
     <div>

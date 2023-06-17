@@ -12,6 +12,7 @@ import { useState } from 'react';
 export default function Navbar() {
   const [currentImage, setCurrentImage] = useState(imageCarrousel[0]);
   const [isVisible, setIsVisible] = useState(false);
+  const [isShowCarrousel, setIsShowCarrousel] = useState(false);
   const scroll = useScroll();
 
   const handleVisibleClick = () => {

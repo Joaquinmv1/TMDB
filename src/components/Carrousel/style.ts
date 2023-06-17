@@ -11,4 +11,8 @@ export const NewPremiersContainer = styled.div`
   img {
     width: 200px;
   }
+
+  img:hover{
+    transform: scaleY(1);
+  }
 `

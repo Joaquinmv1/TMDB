@@ -1,5 +1,9 @@
 export * from './Carrousel/Carrousel';
+export * from './Carrousel/CarrouselRender';
+export * from './Carrousel/style';
 export { default as Modal } from './Modal/Modal';
+export * from './Modal/styles';
+export * from './MovieDetail/MovieDetail';
 export * from './MoviesCard/MoviesCard';
 export * from './MoviesCard/style';
 export { default as Navbar } from './Navbar/Navbar';

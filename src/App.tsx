@@ -1,29 +1,16 @@
-import { Carrousel, Navbar } from "./components";
-import { categoriesCarrousel } from "./constants/images";
-import { fetchMoviesByCategory } from "./services/tmdb.api";
-import { useEffect, useState } from "react";
+import { MovieDetail, CarrouselRender } from "./components";
+import { useGetMovies } from "./hooks";
+import { Routes, Route } from "react-router-dom"
 
 function App() {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const moviesData = await fetchMoviesByCategory();
-      setMovies(moviesData);
-    };
-
-    fetchData();
-  }, []);
+  const { movies } = useGetMovies();
 
   return (
     <>
-      <Navbar />
-      {categoriesCarrousel.map((category) => {
-        const categoryMovies = movies.filter((movie) => movie.category === category);
-        return (
-          <Carrousel key={category} category={category} movies={categoryMovies} />
-        );
-      })}
+      <Routes>
+        <Route path='/' element={<CarrouselRender movies={movies} />} />
+        <Route path='/:type/:id' element={<MovieDetail />} />
+      </Routes>
     </>
   );
 }
