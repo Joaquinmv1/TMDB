@@ -1,22 +1,11 @@
 import { useParams } from "react-router-dom";
 import useGetDetail from "../../hooks/useGetDetail";
-import styled from "styled-components";
+import { ContainerDetail, ContainerInfo, ImageBackground, Image, ContentRight } from "./style";
 
-export const ContainerDetail = styled.div`
-  position: relative;
-  width: 100%;
-  height: 50vh;
-`
-export const ImageBackground = styled.img`
-  width: 100%;
-  height: 40vh; 
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: absolute;
-  image-rendering: auto;
-  filter: brightness(.4) contrast(1.1); 
-` 
+interface Genre{
+  id:number
+  name: string
+}
 
 export const MovieDetail = () => {
   const { type, id } = useParams();
@@ -26,13 +15,31 @@ export const MovieDetail = () => {
   if (!detail) {
     return <p>Error propiedas undefined</p>
   }
-
+  
   console.log(detail);
 
   return (
     <>
       <ContainerDetail>
-        <ImageBackground src={`https://image.tmdb.org/t/p/w1280/${detail.backdrop_path}`} alt={`image ${detail.title}`} />
+        <div>
+          <ImageBackground src={`https://image.tmdb.org/t/p/w1280/${detail.backdrop_path}`} alt={`image banner ${detail.title}`} />
+        </div>
+        <ContainerInfo>
+          <Image src={`https://image.tmdb.org/t/p/w500/${detail.poster_path}`} alt={`image ${detail.name}`} />
+          <ContentRight>
+            <div className="aaaa">
+              <h2>{detail.name || detail.title}</h2>
+              <p style={{ fontSize: '1.2rem' }}>{detail.vote_average}</p>
+            </div>
+            <div style={{display: 'flex', gap: '10px'}}>
+              {detail.genres.map((genre:Genre) => {
+                return <p key={genre.id}>{genre.name}</p>
+              })}
+            </div>
+            <p>{detail.first_air_date} | cap: 11 | 16+ </p>
+            <h5>{detail.overview}</h5>
+          </ContentRight>
+        </ContainerInfo>
       </ContainerDetail>
     </>
   )

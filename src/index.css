@@ -15,3 +15,10 @@ li {
   list-style: none;
 }
 
+.aaaa{
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}

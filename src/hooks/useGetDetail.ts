@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
+import { Detail } from '../models/types';
 const API_KEY = 'eded4ee4b78f79328cc20b65cd4c2b94';
 
 interface UseProps {
-    type:string | undefined
-    id:string | undefined
+  type: string | undefined
+  id: string | undefined
 }
 
 export default function useGetDetail({ type, id }: UseProps) {
-  const [detail, setDetail] = useState(null);
+  const [detail, setDetail] = useState<Detail>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -17,7 +18,7 @@ export default function useGetDetail({ type, id }: UseProps) {
     try {
       const res = await fetch(url)
       const json = await res.json()
-      setDetail(json) 
+      setDetail(json)
     } catch (error) {
       console.log(error);
     }
