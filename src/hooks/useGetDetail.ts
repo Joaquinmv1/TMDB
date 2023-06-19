@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Detail } from '../models/types';
-
-const API_KEY = 'eded4ee4b78f79328cc20b65cd4c2b94';
+import { API_KEY } from '../constants/images';
 
 interface UseProps {
   type: string | undefined;
@@ -9,7 +7,7 @@ interface UseProps {
 }
 
 export default function useGetDetail({ type, id }: UseProps) {
-  const [detail, setDetail] = useState<Detail>();
+  const [detail, setDetail] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -29,7 +27,7 @@ export default function useGetDetail({ type, id }: UseProps) {
       const videosData = await videosResponse.json();
       const trailers = videosData.results.filter((video: any) => video.type === 'Trailer');
 
-      setIsLoading(true)
+      setIsLoading(true);
 
       setDetail({
         json,
@@ -38,6 +36,7 @@ export default function useGetDetail({ type, id }: UseProps) {
       });
     } catch (error) {
       console.log(error);
+      setIsLoading(true);
     }
   };
 

@@ -1,6 +1,7 @@
-import { MovieDetail, CarrouselRender, Navbar, HeroSlide } from "./components";
+import { CarrouselRender, Navbar, HeroSlide } from "./components";
 import { useGetMovies } from "./hooks";
 import { Routes, Route, useLocation } from "react-router-dom"
+import { MovieDetail } from "./pages";
 
 function App() {
   const { movies, isLoading } = useGetMovies();

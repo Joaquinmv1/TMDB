@@ -1,4 +1,5 @@
-const API_KEY = 'eded4ee4b78f79328cc20b65cd4c2b94';
+export const API_KEY = 'eded4ee4b78f79328cc20b65cd4c2b94';
+export const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
 
 export const imageCarrousel = [
   {

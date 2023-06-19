@@ -6,6 +6,7 @@ export const CarouselContainer = styled.div`
 
 export const Header = styled.header`
   width: 100%;
+  background-color: #fff;
 `
 
 export const Overlay = styled.div`
@@ -42,6 +43,7 @@ export const FullViewportImage = styled.div`
   width: 100%;
   max-height: 80vh;
   object-fit: cover;
+  background-color: #fff;
   aspect-ratio: 16/9;
   overflow: hidden;
   z-index: 100;
@@ -129,4 +131,13 @@ export const InputSearch = styled.input`
   font-weight: bold;
   color: #fff;
   border: none;
+`
+
+export const ButtonRight = styled.button`
+  background-color: #48c3db;
+  color: #fff;
+  padding: .65rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
 `

@@ -6,6 +6,7 @@ import { FullViewportImage, Modal, Overlay } from '..';
 export const HeroSlide = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentImage, setCurrentImage] = useState(imageCarrousel[0]);
+  
   const handleVisibleClick = () => {
     setIsVisible(!isVisible)
   }

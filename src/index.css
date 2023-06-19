@@ -21,12 +21,14 @@ li {
   justify-content: space-between;
   text-align: center;
   align-items: center;
+  gap: 10px;
+}
+
+.link{
+  text-decoration: none !important;
+  color: #fff;
 }
 
 .selected{
   text-decoration: underline #fff;
-}
-
-.fade {
-  background-color: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
 }

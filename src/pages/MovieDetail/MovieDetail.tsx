@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 import useGetDetail from "../../hooks/useGetDetail";
 import { ContainerDetail, ContainerInfo, ImageBackground, Image, ContentRight, Sections } from "./style";
 import { useState } from "react";
+import { Dna } from 'react-loader-spinner'
 import { CastList } from ".";
-import { InputSearch, Nav, NavBarLeft, NavBarRight, Ul } from "..";
-import { AiOutlineSearch } from "react-icons/ai";
-import { useScroll } from "../../hooks";
-import { Dna } from  'react-loader-spinner'
+import { AiTwotoneStar } from 'react-icons/ai';
+import { OverviewSection } from "./OverviewSection/OverviewSection";
+import { TrailersContent } from "..";
 
 interface Genre {
   id: number
@@ -16,7 +16,7 @@ interface Genre {
 export const MovieDetail = () => {
   const { type, id } = useParams();
   const [isSelected, setIsSelected] = useState('overview');
-  const scroll = useScroll();
+
   const handleSelectedClick = (section: string) => {
     setIsSelected(section)
   }
@@ -35,29 +35,17 @@ export const MovieDetail = () => {
     fontWeight: 'bold'
   }
 
-  // const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
-
-  const sections = ['overview', 'trailers & more', 'more like this', 'details']
+  const sections = ['overview', 'trailers & more', 'more like this', 'details'];
+  const sectionComponents = {
+    overview: <OverviewSection detail={detail} />,
+    'trailers & more': <TrailersContent />,
+    // 'more like this': <MoreLikeThisSection detail={detail} />,
+    // details: <DetailsSection detail={detail} />
+  };
 
   return (
     <>
       <ContainerDetail>
-         {/* <Nav scrolled={scroll}>
-          <NavBarLeft>
-            <h2>PicturePandemonium</h2>
-            <Ul>
-              <li>Home</li>
-              <li>Movies</li>
-              <li>Series</li>
-              <li>Anime</li>
-              <li>Favoritos</li>
-            </Ul>
-          </NavBarLeft>
-          <NavBarRight>
-            <AiOutlineSearch />
-            <InputSearch type="text" placeholder="Marvel, Naruto, Spider Man..." />
-          </NavBarRight>
-        </Nav> */}
         <div>
           <ImageBackground src={`https://image.tmdb.org/t/p/w1280/${detail.json.backdrop_path}`} alt={`image banner ${detail.json.title}`} />
         </div>
@@ -66,7 +54,7 @@ export const MovieDetail = () => {
           <ContentRight>
             <div className="aaaa">
               <h2>{detail.json.name || detail.json.title}</h2>
-              <p style={{ fontSize: '1.2rem' }}>{detail.json.vote_average}</p>
+              <p style={{ fontSize: '1.2rem', textAlign: 'center' }}>{detail.json.vote_average} <AiTwotoneStar /></p>
             </div>
             <p style={{ color: '#afadad', fontWeight: 'bold' }}>{detail.json.first_air_date} | Caps: {detail.json.last_episode_to_air.episode_number || 'movie'} | 16+</p>
             <div style={{ display: 'flex', gap: '10px', paddingBlock: '1rem' }}>
@@ -82,16 +70,17 @@ export const MovieDetail = () => {
                 })}
               </ul>
             </Sections>
+            {isSelected === 'trailers & more' ? <TrailersContent /> : sectionComponents[isSelected]}
             <h5>{detail.json.overview}</h5>
             <div>
-              <p style={{color: "#bababa"}}>starring : </p>
+              <p style={{ color: "#bababa" }}>starring : </p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-               <span style={{color: "#bababa"}}> Genre:</span> {detail.json.genres.map((genre: Genre) => {
+                <span style={{ color: "#bababa" }}> Genre:</span> {detail.json.genres.map((genre: Genre) => {
                   return <p key={genre.id}>{genre.name}</p>
                 })}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <span style={{color: "#bababa"}}>languages: </span> <p style={{fontWeight: 'normal'}}>{detail.json.original_language.toUpperCase()}</p>
+                <span style={{ color: "#bababa" }}>languages: </span> <p style={{ fontWeight: 'normal' }}>{detail.json.original_language.toUpperCase()}</p>
               </div>
             </div>
             <CastList detail={detail} />

@@ -1,6 +1,7 @@
 import { AiOutlineSearch } from 'react-icons/ai';
-import { CarouselContainer, Header, InputSearch, Nav, NavBarLeft, NavBarRight, Ul } from './style';
+import { ButtonRight, CarouselContainer, Header, InputSearch, Nav, NavBarLeft, NavBarRight, Ul } from './style';
 import { useScroll } from "../../hooks";
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const scroll = useScroll();
@@ -11,7 +12,11 @@ export default function Navbar() {
           <NavBarLeft>
             <h2>PicturePandemonium</h2>
             <Ul>
-              <li>Home</li>
+              <Link className='link' to='/'>
+                <li>
+                  Home
+                </li>
+              </Link>
               <li>Movies</li>
               <li>Series</li>
               <li>Anime</li>
@@ -19,8 +24,9 @@ export default function Navbar() {
             </Ul>
           </NavBarLeft>
           <NavBarRight>
-            <AiOutlineSearch />
-            <InputSearch type="text" placeholder="Marvel, Naruto, Spider Man..." />
+            <ButtonRight>Sign out</ButtonRight>
+            {/* <AiOutlineSearch />
+            <InputSearch type="text" placeholder="Marvel, Naruto, Spider Man..." /> */}
           </NavBarRight>
         </Nav>
       </Header>
