@@ -3,10 +3,12 @@ import styled from "styled-components";
 export const ContainerDetail = styled.div`
   position: relative;
   width: 100%;
+  height: auto;  
 `
+
 export const ImageBackground = styled.img`
   width: 100%;
-  max-height: 50vh; 
+  max-height: 40vh; 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,37 +16,47 @@ export const ImageBackground = styled.img`
   filter: brightness(.4) contrast(1.1); 
 `
 
-export const Image = styled.img`
-  margin: 1rem;
-  border-radius: 20px;
-  width: 25%;
-`
-
 export const ContainerInfo = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  gap: 30px;
+  gap: 50px;
   position: absolute;
-  top: 120px;
+  top: 140px;
   left: 160px;
   z-index: 2999;
-  width: 90%;
+  /* width: 100%; */
+
+`
+export const Image = styled.img`
+  object-fit: contain;
+  border-radius: 20px;
 `
 
 export const ContentRight = styled.div`
   width: 50%;
   padding: 3rem 0;
+
   h2{
     font-size: 2.5rem;
   }
+
   p{
-    font-size:1rem;
+    font-size:.9rem;
+    font-weight:bold;
   }
 
   h5{
     padding-block:1rem;
-    width: 750px;
+    width: 90%;
+    font-size: .9rem
   }
 `
+
+export const Sections = styled.div`
+  ul{
+    display: flex;
+    gap: 20px;
+    font-size: 1.3rem;
+  }
+`
+

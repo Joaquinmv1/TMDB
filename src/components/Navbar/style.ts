@@ -121,6 +121,7 @@ export const NavBarRight = styled.div`
 export const Ul = styled.ul`
   display: flex;
   gap: 20px;
+  cursor: pointer;
 `
 
 export const InputSearch = styled.input`

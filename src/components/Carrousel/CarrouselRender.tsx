@@ -4,17 +4,17 @@ import { Movie } from "../../models/types";
 
 interface CarrouselProps {
   movies: Array<Movie>
+  isLoading: boolean
 }
 
-export const CarrouselRender = ({ movies }: CarrouselProps) => {
+export const CarrouselRender = ({ movies, isLoading }: CarrouselProps) => {
   return (
     <>
-      <Navbar />
       <div>
         {categoriesCarrousel.map((category) => {
           const categoryMovies = movies.filter((movie: Movie) => movie.category === category);
           return (
-            <Carrousel key={category} category={category} movies={categoryMovies} />
+            <Carrousel key={category} category={category} movies={categoryMovies} isLoading={isLoading} />
           );
         })}
       </div>

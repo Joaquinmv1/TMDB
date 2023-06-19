@@ -1,14 +1,17 @@
-import { MovieDetail, CarrouselRender } from "./components";
+import { MovieDetail, CarrouselRender, Navbar, HeroSlide } from "./components";
 import { useGetMovies } from "./hooks";
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, useLocation } from "react-router-dom"
 
 function App() {
-  const { movies } = useGetMovies();
+  const { movies, isLoading } = useGetMovies();
+  const location = useLocation();
 
   return (
     <>
+      <Navbar />
+      {location.pathname === '/' && <HeroSlide />}
       <Routes>
-        <Route path='/' element={<CarrouselRender movies={movies} />} />
+        <Route path='/' element={<CarrouselRender movies={movies} isLoading={isLoading} />} />
         <Route path='/:type/:id' element={<MovieDetail />} />
       </Routes>
     </>

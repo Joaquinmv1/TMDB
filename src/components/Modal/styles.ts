@@ -19,13 +19,15 @@ export const ContainerModal = styled.div`
     justify-content: center;
     align-items: center;
   }
-`;
+
+  `;
 
 export const ModalContent = styled.div`
   background-color: #fff;
   width: 50%;
   height: auto;
   color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   background-color: rgb(17, 17, 17);
   display: flex;
   flex-direction: column;
