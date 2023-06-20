@@ -1,6 +1,6 @@
-import { Carrousel } from "..";
-import { categoriesCarrousel } from "../../constants/images";
-import { Movie } from "../../models/types";
+import { Carrousel } from "../../../components";
+import { categoriesCarrousel } from "../../../constants/images";
+import { Movie } from "../../../models/types";
 
 interface CarrouselProps {
   movies: Array<Movie>

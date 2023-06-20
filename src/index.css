@@ -16,12 +16,10 @@ li {
 }
 
 .aaaa{
-  width: 85%;
   display: flex;
   justify-content: space-between;
   text-align: center;
   align-items: center;
-  gap: 10px;
 }
 
 .link{
@@ -29,6 +27,8 @@ li {
   color: #fff;
 }
 
-.selected{
-  text-decoration: underline #fff;
+.line {
+  height: 3px;
+  border-radius: 10px;
+  background-color: #fff; 
 }

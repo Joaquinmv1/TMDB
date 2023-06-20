@@ -1,10 +1,10 @@
-export * from './Carrousel/Carrousel';
-export * from './Carrousel/CarrouselRender';
-export * from './Carrousel/style';
+export * from '../pages/Home/Carrousel/Carrousel';
+export * from '../pages/Home/Carrousel/CarrouselRender';
+export * from '../pages/Home/Carrousel/style';
 export { default as Modal } from './Modal/Modal';
 export * from './Modal/styles';
-export * from '../pages/MovieDetail/CastList/CastList';
-export * from '../pages/MovieDetail/CastList/style';
+export * from '../pages/Detail/CastList/CastList';
+export * from '../pages/Detail/CastList/style';
 export * from './MoviesCard/MoviesCard';
 export * from './MoviesCard/style';
 export * from './Header/HeroSlide';

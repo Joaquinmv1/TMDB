@@ -1,20 +1,25 @@
-import { CarrouselRender, Navbar, HeroSlide } from "./components";
-import { useGetMovies } from "./hooks";
+import { Navbar, HeroSlide } from "./components";
 import { Routes, Route, useLocation } from "react-router-dom"
-import { MovieDetail } from "./pages";
+import { Home, Detail } from "./pages";
+import { AuthProvider } from "./context/Auth";
 
 function App() {
-  const { movies, isLoading } = useGetMovies();
   const location = useLocation();
+
+  // const RequireAuth = ({children}) => {
+  //   return user ? children : <Navigate to={'/login'} />
+  // }
 
   return (
     <>
-      <Navbar />
-      {location.pathname === '/' && <HeroSlide />}
-      <Routes>
-        <Route path='/' element={<CarrouselRender movies={movies} isLoading={isLoading} />} />
-        <Route path='/:type/:id' element={<MovieDetail />} />
-      </Routes>
+      <AuthProvider>
+        <Navbar />
+        {location.pathname === '/' && <HeroSlide />}
+        <Routes>
+          <Route path='/' element={<Home  />} />
+          <Route path='/:type/:id' element={<Detail />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 }

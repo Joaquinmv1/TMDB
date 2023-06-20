@@ -4,6 +4,7 @@ export const ContainerDetail = styled.div`
   position: relative;
   width: 100%;
   height: auto;  
+  
 `
 
 export const ImageBackground = styled.img`
@@ -14,6 +15,7 @@ export const ImageBackground = styled.img`
   background-repeat: no-repeat;
   image-rendering: auto;
   filter: brightness(.4) contrast(1.1); 
+  
 `
 
 export const ContainerInfo = styled.div`
@@ -24,17 +26,19 @@ export const ContainerInfo = styled.div`
   top: 140px;
   left: 160px;
   z-index: 2999;
-  /* width: 100%; */
-
+  width: 90%;
 `
 export const Image = styled.img`
-  object-fit: contain;
+  object-fit: cover;
+  aspect-ratio: 16/9;
   border-radius: 20px;
+  width: 30%;
+  height: 700px;
 `
 
 export const ContentRight = styled.div`
   width: 50%;
-  padding: 3rem 0;
+  padding: 1.5rem 0;
 
   h2{
     font-size: 2.5rem;
@@ -60,3 +64,9 @@ export const Sections = styled.div`
   }
 `
 
+export const Loader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+`

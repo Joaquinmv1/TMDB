@@ -1,9 +1,9 @@
 import { NewPremiersContainer } from './style';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Movie } from '../../models/types';
+import { Movie } from '../../../models/types';
 import { Link } from 'react-router-dom';
-import { BASE_URL } from '../../constants/images';
+import { BASE_URL } from '../../../constants/images';
 
 interface CarrouselProps {
   category: string;

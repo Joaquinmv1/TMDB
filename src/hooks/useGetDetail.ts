@@ -9,14 +9,13 @@ interface UseProps {
 export default function useGetDetail({ type, id }: UseProps) {
   const [detail, setDetail] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
 
   const url = `https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}`;
 
   const getDetailElement = async () => {
     try {
       const res = await fetch(url);
-      const json = await res.json();
+      const data = await res.json();
 
       const creditsUrl = `https://api.themoviedb.org/3/${type}/${id}/credits?api_key=${API_KEY}`;
       const creditsResponse = await fetch(creditsUrl);
@@ -30,7 +29,7 @@ export default function useGetDetail({ type, id }: UseProps) {
       setIsLoading(true);
 
       setDetail({
-        json,
+        data,
         creditsData,
         trailers,
       });
