@@ -6,12 +6,18 @@ interface ContextProps {
   children: React.ReactNode
 }
 
-const AuthContext = createContext();
+interface AuthContextProps {
+  SignIn: () => void;
+  logOut: () => void;
+  user: any;
+}
 
-export const useAuth = () => useContext(AuthContext)
+const AuthContext = createContext<AuthContextProps | undefined>(undefined);
+
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }: ContextProps) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState<Object | null>({});
 
   const SignIn = () => {
     const provider = new GoogleAuthProvider();
@@ -21,6 +27,16 @@ export const AuthProvider = ({ children }: ContextProps) => {
   const logOut = () => {
     signOut(auth);
   }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    return () => {
+      unsubscribe(); 
+    };
+  }, []);
 
   return (
     <AuthContext.Provider value={{ SignIn, logOut, user }}>

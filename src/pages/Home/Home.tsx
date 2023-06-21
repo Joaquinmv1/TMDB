@@ -1,4 +1,5 @@
-import { CarrouselRender } from "../../components"
+
+import { CarrouselRender } from "..";
 import { useGetMovies } from "../../hooks";
 
 export const Home = () => {

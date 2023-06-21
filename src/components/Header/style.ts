@@ -31,7 +31,8 @@ export const Overlay = styled.div`
   }
 
   button{
-    width: 100px;
+    display: block;
+    width: 8rem;
     padding: .5rem;
     border: none;
     cursor: pointer;
@@ -41,7 +42,7 @@ export const Overlay = styled.div`
 export const FullViewportImage = styled.div`
   position: relative;
   width: 100%;
-  max-height: 80vh;
+  max-height: 90vh;
   object-fit: cover;
   background-color: #fff;
   aspect-ratio: 16/9;

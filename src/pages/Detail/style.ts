@@ -2,9 +2,8 @@ import styled from "styled-components";
 
 export const ContainerDetail = styled.div`
   position: relative;
+  min-height: calc(100vh - 200px);
   width: 100%;
-  height: auto;  
-  
 `
 
 export const ImageBackground = styled.img`

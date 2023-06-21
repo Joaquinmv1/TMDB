@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import useGetDetail from "../../hooks/useGetDetail";
-import { ContainerDetail, ContainerInfo, ImageBackground, Image, ContentRight, Sections, Loader } from "./style";
+import { ContainerDetail, ContainerInfo, ImageBackground, Image, ContentRight, Loader } from "./style";
 import { useState } from "react";
 import { Dna } from 'react-loader-spinner'
 import { AiTwotoneStar } from 'react-icons/ai';
 import { OverviewSection } from "./OverviewSection/OverviewSection";
-import { TrailersContent } from "..";
-import { motion } from "framer-motion";
+import { SectionsList, TrailersContent } from "..";
+// import { Footer } from "../../components";
 
 interface Genre {
   id: number
@@ -35,20 +35,12 @@ export const Detail = () => {
     fontWeight: 'bold'
   }
 
-  const sections = ['overview', 'trailers & more', 'more like this', 'details'];
   const sectionComponents: any = {
     overview: <OverviewSection detail={detail} />,
     'trailers & more': <TrailersContent />,
     // 'more like this': <MoreLikeThisSection detail={detail} />,
     // details: <DetailsSection detail={detail} />
   };
-
-  const lineVariants = {
-    hidden: { width: '0' },
-    visible: { width: "100%" },
-  };
-
-  console.log(detail);
 
   return (
     <>
@@ -72,30 +64,7 @@ export const Detail = () => {
                 return <p style={style} key={genre.id}>{genre.name}</p>
               })}
             </div>
-            <Sections>
-              <ul>
-                {sections.map((section) => {
-                  const isSelectedClass = isSelected === section ? "line" : "";
-                  return (
-                    <motion.li
-                      key={section}
-                      onClick={() => handleSelectedClick(section)}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: isSelected === section ? 1.1 : 0.5 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      {section}
-                      <motion.div
-                        className={isSelectedClass}
-                        initial="hidden"
-                        animate="visible"
-                        variants={lineVariants}
-                      />
-                    </motion.li>
-                  );
-                })}
-              </ul>
-            </Sections>
+            <SectionsList handleSelectedClick={handleSelectedClick} isSelected={isSelected} />
             {isSelected === 'trailers & more' ? <TrailersContent detail={detail} /> : sectionComponents[isSelected]}
           </ContentRight>
         </ContainerInfo>
