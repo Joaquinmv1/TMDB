@@ -8,7 +8,6 @@ import { OverviewSection } from "./OverviewSection/OverviewSection";
 import { DetailsSection, MoreLikeThisSection, SectionsList, TrailersContent } from "..";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-// import { Footer } from "../../components";
 
 interface Genre {
   id: number
@@ -17,14 +16,13 @@ interface Genre {
 
 export const Detail = () => {
   const { type, id } = useParams();
-  const [isSelected, setIsSelected] = useState('more like this');
+  const [isSelected, setIsSelected] = useState('overview');
+  const { detail, isLoading } = useGetDetail({ type, id });
 
   const handleSelectedClick = (section: string) => {
     setIsSelected(section)
   }
-
-  const { detail, isLoading } = useGetDetail({ type, id })
-
+  
   if (!isLoading) {
     return <Loader><Dna /></Loader>
   }
@@ -39,13 +37,13 @@ export const Detail = () => {
 
   const sectionComponents: any = {
     'overview': <OverviewSection detail={detail} />,
-    'trailers': <TrailersContent />,
+    'trailers': <TrailersContent detail={detail}  />,
     'more like this': <MoreLikeThisSection detail={detail} />,
-    details: <DetailsSection detail={detail} />
+    'details': <DetailsSection detail={detail} />
   };
 
   console.log(detail);
-  
+
   return (
     <>
       <ContainerDetail>
@@ -69,12 +67,12 @@ export const Detail = () => {
               })}
             </div>
             <SectionsList handleSelectedClick={handleSelectedClick} isSelected={isSelected} />
-            {isSelected === 'trailers' ? <TrailersContent detail={detail} /> : sectionComponents[isSelected]}
+            {isSelected === 'overview' ? <OverviewSection detail={detail} /> : sectionComponents[isSelected]}
           </ContentRight>
         </ContainerInfo>
         <Swiper>
           <SwiperSlide>
-            
+
           </SwiperSlide>
         </Swiper>
       </ContainerDetail>
