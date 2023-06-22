@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Dna } from 'react-loader-spinner'
 import { AiTwotoneStar } from 'react-icons/ai';
 import { OverviewSection } from "./OverviewSection/OverviewSection";
-import { SectionsList, TrailersContent } from "..";
+import { DetailsSection, MoreLikeThisSection, SectionsList, TrailersContent } from "..";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 // import { Footer } from "../../components";
@@ -17,7 +17,7 @@ interface Genre {
 
 export const Detail = () => {
   const { type, id } = useParams();
-  const [isSelected, setIsSelected] = useState('overview');
+  const [isSelected, setIsSelected] = useState('more like this');
 
   const handleSelectedClick = (section: string) => {
     setIsSelected(section)
@@ -40,8 +40,8 @@ export const Detail = () => {
   const sectionComponents: any = {
     'overview': <OverviewSection detail={detail} />,
     'trailers': <TrailersContent />,
-    // 'more like this': <MoreLikeThisSection detail={detail} />,
-    // details: <DetailsSection detail={detail} />
+    'more like this': <MoreLikeThisSection detail={detail} />,
+    details: <DetailsSection detail={detail} />
   };
 
   console.log(detail);

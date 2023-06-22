@@ -2,11 +2,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { imageCarrousel } from '../../constants/images';
 import { useState } from 'react';
 import { FullViewportImage, Modal, Overlay } from '..';
+import { BsFillPlayFill } from 'react-icons/bs'
+import { AiOutlinePlus } from 'react-icons/ai'
 
 export const HeroSlide = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentImage, setCurrentImage] = useState(imageCarrousel[0]);
-  
+
   const handleVisibleClick = () => {
     setIsVisible(!isVisible)
   }
@@ -25,7 +27,10 @@ export const HeroSlide = () => {
                 <Overlay>
                   <h3>{currentImage.name}</h3>
                   <p>{currentImage.description}</p>
-                  <button onClick={handleVisibleClick}>Ver mas</button>
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <button style={{ backgroundColor: '#48c3db', color: 'white', textAlign: 'center' }}><BsFillPlayFill /> Play</button>
+                    <button onClick={handleVisibleClick}><AiOutlinePlus /> Ver mas</button>
+                  </div>
                 </Overlay>
               </FullViewportImage>
             </SwiperSlide>
