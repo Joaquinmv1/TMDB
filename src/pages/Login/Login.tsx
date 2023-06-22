@@ -49,9 +49,7 @@ export const Login = () => {
   const init = async () => {
     try {
       await SignIn()
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
 
   return (

@@ -6,6 +6,8 @@ import { Dna } from 'react-loader-spinner'
 import { AiTwotoneStar } from 'react-icons/ai';
 import { OverviewSection } from "./OverviewSection/OverviewSection";
 import { SectionsList, TrailersContent } from "..";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 // import { Footer } from "../../components";
 
 interface Genre {
@@ -36,12 +38,14 @@ export const Detail = () => {
   }
 
   const sectionComponents: any = {
-    overview: <OverviewSection detail={detail} />,
-    'trailers & more': <TrailersContent />,
+    'overview': <OverviewSection detail={detail} />,
+    'trailers': <TrailersContent />,
     // 'more like this': <MoreLikeThisSection detail={detail} />,
     // details: <DetailsSection detail={detail} />
   };
 
+  console.log(detail);
+  
   return (
     <>
       <ContainerDetail>
@@ -65,9 +69,14 @@ export const Detail = () => {
               })}
             </div>
             <SectionsList handleSelectedClick={handleSelectedClick} isSelected={isSelected} />
-            {isSelected === 'trailers & more' ? <TrailersContent detail={detail} /> : sectionComponents[isSelected]}
+            {isSelected === 'trailers' ? <TrailersContent detail={detail} /> : sectionComponents[isSelected]}
           </ContentRight>
         </ContainerInfo>
+        <Swiper>
+          <SwiperSlide>
+            
+          </SwiperSlide>
+        </Swiper>
       </ContainerDetail>
     </>
   )

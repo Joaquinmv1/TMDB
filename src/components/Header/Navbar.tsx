@@ -22,7 +22,7 @@ export default function Navbar() {
               <li>Movies</li>
               <li>Series</li>
               <li>Anime</li>
-              <li>Favoritos</li>
+              <li>My List</li>
             </Ul>
           </NavBarLeft>
           <NavBarRight>

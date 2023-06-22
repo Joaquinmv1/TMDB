@@ -1,4 +1,3 @@
-
 import { categoriesCarrousel } from "../../../constants/images";
 import { Movie } from "../../../models/types";
 import { Carrousel } from "./Carrousel";

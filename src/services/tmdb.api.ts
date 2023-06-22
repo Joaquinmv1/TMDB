@@ -17,7 +17,6 @@ export const fetchMoviesByCategory = async () => {
 
     return allMovies;
   } catch (error) {
-    console.error('Error fetching movies:', error);
     return [];
   }
 };
