@@ -10,9 +10,7 @@ export function useGetMovies() {
       const res = await fetchMoviesByCategory();
       setMovies(res);
       setIsLoading(true)
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

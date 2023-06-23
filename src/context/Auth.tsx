@@ -1,4 +1,4 @@
-import { useContext, createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, signInWithRedirect, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth } from "../services/auth";
 
@@ -12,9 +12,7 @@ interface AuthContextProps {
   user: any;
 }
 
-const AuthContext = createContext<AuthContextProps | undefined>(undefined);
-
-export const useAuth = () => useContext(AuthContext);
+export const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider = ({ children }: ContextProps) => {
   const [user, setUser] = useState<Object | null>({});

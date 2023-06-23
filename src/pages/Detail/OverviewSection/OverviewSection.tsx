@@ -23,7 +23,7 @@ export const OverviewSection = ({ detail }: any) => {
             ? detail.data.origin_country[0]
             : detail.data.production_countries.map((country: any) => country.name).join(" ")}
         </p>
-        <p><span style={{ color: "#bababa" }}>popularity:</span> {detail.data.popularity} </p>
+        <p><span style={{ color: "#bababa" }}>Popularity:</span> {detail.data.popularity} </p>
         <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
           <span style={{ color: "#bababa" }}> Genre:</span> {detail.data.genres.map((genre: Genre) => {
             return <p key={genre.id}>{genre.name}</p>
@@ -32,6 +32,7 @@ export const OverviewSection = ({ detail }: any) => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
           <span style={{ color: "#bababa" }}>languages: </span> <p style={{ fontWeight: 'normal' }}>{detail.data.original_language.toUpperCase()}</p>
         </div>
+        <p><span style={{ color: "#bababa" }}>Homepage:</span> {detail.data.homepage}</p>
       </InfoContainer>
       <CastList detail={detail} />
     </div>

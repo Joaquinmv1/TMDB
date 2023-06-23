@@ -26,6 +26,8 @@ export const ContainerInfo = styled.div`
   left: 160px;
   z-index: 2999;
   width: 90%;
+
+  
 `
 export const Image = styled.img`
   object-fit: cover;
@@ -33,6 +35,12 @@ export const Image = styled.img`
   border-radius: 20px;
   width: 30%;
   height: 700px;
+  transition: all 0.3s ease;
+
+  &:hover{
+    filter: grayscale(1);
+    transition: all 0.4s ease;
+  }
 `
 
 export const ContentRight = styled.div`

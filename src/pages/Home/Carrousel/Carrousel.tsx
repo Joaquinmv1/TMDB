@@ -1,35 +1,29 @@
-import { NewPremiersContainer } from './style';
+import { ContainerSwiper, ImageCarrousel, NewPremiersContainer, Svg } from './style';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Movie } from '../../../models/types';
 import { Link } from 'react-router-dom';
 import { BASE_URL } from '../../../constants/images';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import styled from 'styled-components';
 
 interface CarrouselProps {
   category: string;
   movies: Movie[];
 }
 
-export const ContainerSwiper = styled.div`
-  width: 100%;
-  
-`
-
 export function Carrousel({ category, movies }: CarrouselProps) {
   return (
     <NewPremiersContainer>
       <h2>{category}</h2>
       <ContainerSwiper>
-        <Swiper 
+        <Swiper
           navigation={true}
           slidesPerView={9}
           breakpoints={{
-            1700:{
+            1700: {
               slidesPerView: 9,
             },
-            1500:{
+            1500: {
               slidesPerView: 8,
             },
             1300: {
@@ -64,10 +58,14 @@ export function Carrousel({ category, movies }: CarrouselProps) {
           {movies?.map((movie: Movie) => (
             <SwiperSlide key={movie.id}>
               <Link to={`${movie.type}/${movie.id}`}>
-                <img
+                <ImageCarrousel
                   src={`${BASE_URL}${movie.poster_path}`}
                   alt={`Movie ${movie.title}`}
                 />
+               {/* <Svg>
+                <MdViewCompact />
+                <BsFillHeartFill />
+               </Svg> */}
               </Link>
             </SwiperSlide>
           ))}

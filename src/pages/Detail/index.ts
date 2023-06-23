@@ -1,7 +1,6 @@
 export * from './CastList/CastList';
 export * from './CastList/style';
 export * from './Detail';
-export * from './DetailsSection';
 export * from './MoreLikeThisSection/MoreLikeThisSection';
 export * from './MoreLikeThisSection/style';
 export * from './OverviewSection';

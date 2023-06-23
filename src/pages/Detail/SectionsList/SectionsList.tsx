@@ -11,7 +11,7 @@ const lineVariants = {
   visible: { width: "100%" },
 };
 
-const sections = ['overview', 'trailers', 'more like this', 'details'];
+const sections = ['overview', 'trailers', 'more like this'];
 
 export const SectionsList = ({ isSelected, handleSelectedClick }: SectionsProps) => {
   return (

@@ -6,7 +6,7 @@ interface UseProps {
   id: string | undefined;
 }
 
-export default function useGetDetail({ type, id }: UseProps) {
+export function useGetDetail({ type, id }: UseProps) {
   const [detail, setDetail] = useState<any>();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,7 +34,6 @@ export default function useGetDetail({ type, id }: UseProps) {
         trailers,
       });
     } catch (error) {
-      console.log(error);
       setIsLoading(true);
     }
   };
