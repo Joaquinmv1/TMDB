@@ -13,21 +13,26 @@ export const ImageBackground = styled.img`
   background-size: cover;
   background-repeat: no-repeat;
   image-rendering: auto;
-  filter: brightness(.4) contrast(1.1); 
-  
+  filter: brightness(.45) contrast(1.3); 
 `
 
 export const ContainerInfo = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 50px;
   position: absolute;
   top: 140px;
   left: 160px;
   z-index: 2999;
-  width: 90%;
 
+  @media screen and (max-width: 1555px){
+    flex-direction: column;
+    top: 100px;
+    left: 0;
+  }
   
+
 `
 export const Image = styled.img`
   object-fit: cover;
@@ -41,11 +46,25 @@ export const Image = styled.img`
     filter: grayscale(1);
     transition: all 0.4s ease;
   }
+
+  @media screen and (max-width: 1550px){
+    width: 40%;
+    height: 600px;
+  }
+
+  @media screen and (max-width: 1147px){
+    width: 60%;
+    height: 500px;
+  }
 `
 
 export const ContentRight = styled.div`
   width: 50%;
   padding: 1.5rem 0;
+
+  /* @media screen and (max-width: 1550px){
+    width: 100%;
+  } */
 
   h2{
     font-size: 2.5rem;

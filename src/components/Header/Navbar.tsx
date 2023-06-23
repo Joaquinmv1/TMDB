@@ -1,7 +1,7 @@
-// import { AiOutlineSearch } from 'react-icons/ai';
 import { ButtonRight, CarouselContainer, Header, InputSearch, Nav, NavBarLeft, NavBarRight, Ul } from './style';
 import { useScroll } from "../../hooks";
 import { Link } from 'react-router-dom';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 export default function Navbar() {
   const scroll = useScroll();
@@ -26,11 +26,11 @@ export default function Navbar() {
             </Ul>
           </NavBarLeft>
           <NavBarRight>
+            <AiOutlineSearch />
+            <InputSearch type="text" placeholder="Marvel, Naruto, Spider Man..." />
             <Link to='/login'>
               <ButtonRight>Sign out</ButtonRight>
             </Link>
-            {/* <AiOutlineSearch />
-            <InputSearch type="text" placeholder="Marvel, Naruto, Spider Man..." /> */}
           </NavBarRight>
         </Nav>
       </Header>

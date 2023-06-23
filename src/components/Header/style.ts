@@ -7,6 +7,7 @@ export const CarouselContainer = styled.div`
 export const Header = styled.header`
   width: 100%;
   background-color: #fff;
+  position: relative;
 `
 
 export const Overlay = styled.div`
@@ -19,7 +20,7 @@ export const Overlay = styled.div`
   flex-flow:wrap column;
   gap: 10px;
   color: white;
-  z-index: 2;
+  z-index: 100;
   transition: opacity 0.3s ease;
 
   h3 {
@@ -47,7 +48,7 @@ export const FullViewportImage = styled.div`
   background-color: #fff;
   aspect-ratio: 16/9;
   overflow: hidden;
-  z-index: 100;
+  z-index: 1000;
   
   &::before {
     content: "";
@@ -82,9 +83,10 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   left: 0;
   width: 100%;
   padding: 1rem;
-  z-index: 100;
+  z-index: 1000000;
   color: #fff;
   transition: background-color 0.3s ease;
+  margin-bottom: 15vh;
   
   ${({ scrolled }) =>
     scrolled &&
@@ -130,8 +132,12 @@ export const Ul = styled.ul`
 export const InputSearch = styled.input`
   background-color: transparent;
   font-weight: bold;
-  color: #fff;
   border: none;
+  color: #fff; /* Cambia el color del marcador de posición aquí */
+  
+  ::placeholder {
+    color: #fff; /* Cambia el color del marcador de posición aquí */
+  }
 `
 
 export const ButtonRight = styled.button`

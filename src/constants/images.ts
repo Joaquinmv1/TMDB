@@ -59,3 +59,26 @@ export const categories = [
     type: 'tv'
   }
 ];
+
+export const filterOptions = [
+  { label: "Películas", value: "movies" },
+  { label: "Series", value: "series" },
+  { label: "Anime", value: "anime" },
+  { label: "Mejor Calificados", value: "top_rated" },
+  { label: "Más Populares", value: "popular" },
+  { label: "Próximos Lanzamientos", value: "upcoming" },
+  { label: "En Cartelera", value: "now_playing" },
+  { label: "Todas las Películas", value: "all_movies" },
+  { label: "Todas las Series", value: "all_series" },
+  { label: "Todas las Temporadas", value: "all_seasons" },
+  { label: "Acción", value: "action" },
+  { label: "Aventura", value: "adventure" },
+  { label: "Comedia", value: "comedy" },
+  { label: "Drama", value: "drama" },
+  { label: "Suspenso", value: "thriller" },
+  { label: "Ciencia Ficción", value: "sci-fi" },
+  { label: "Fantasía", value: "fantasy" },
+  { label: "Animación", value: "animation" },
+  { label: "Romance", value: "romance" },
+  // Agrega más categorías según tus necesidades
+];

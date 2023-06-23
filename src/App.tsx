@@ -1,6 +1,6 @@
-import { Navbar, HeroSlide, Footer } from "./components";
+import { Navbar, HeroSlide } from "./components";
 import { Routes, Route, useLocation } from "react-router-dom"
-import { Home, Detail, Login } from "./pages";
+import { Home, Detail, Login, ShowSearchView,  } from "./pages";
 import { AuthProvider } from "./context/Auth";
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path='/' element={<Home />} />
           <Route path='/:type/:id' element={<Detail />} />
+          <Route path='/movies' element={<ShowSearchView />}/>
         </Routes>
         {/* <Footer /> */}
       </AuthProvider>
