@@ -9,8 +9,7 @@ function App() {
   return (
     <>
       <AuthProvider>
-        {location.pathname === '/' && <HeroSlide />}
-        {location.pathname !== '/login' && <Navbar /> }
+        {location.pathname !== '/login'  && <Navbar /> }
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path='/' element={<Home />} />

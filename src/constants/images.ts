@@ -8,13 +8,13 @@ export const imageCarrousel = [
     image: 'onepiece.jpg'
   },
   {
-    name: 'Spider Man',
-    description: 'Description for Spider Man',
-    image: 'Dibujo sin título (1).svg'
+    name: 'Harry Potter',
+    description: 'Harry Potter is a series of books written by J.K. Rowling that tells the adventures of a young wizard named Harry Potter and his friends at the Hogwarts School of Witchcraft and Wizardry. The story follows Harry as he discovers his identity as a wizard, faces dangerous enemies, and becomes involved in a battle against the evil wizard Lord Voldemort. Throughout the books, themes such as friendship, love, courage, and the importance of making the right choices are explored. The series has been widely popular and has spawned movies, plays, and a large community of fans worldwide.',
+    image: 'harry potter.jpg'
   },
   {
     name: 'Black Clover',
-    description: 'Description for Black Clover',
+    description: 'Black Clover is a manga and anime series created by Yūki Tabata. It follows the story of Asta, a young orphan who lives in a world where magic is everything, but he has no magical abilities himself. Despite this, Asta dreams of becoming the Wizard King, the most powerful mage in the kingdom. With his determination and the help of his friends, Asta joins the Black Bulls, a squad of misfit mages, and embarks on a journey to prove himself and protect his kingdom from dark forces. Black Clover combines elements of fantasy, adventure, and friendship, delivering an action-packed and inspiring story.',
     image: '20524-Asta-Black-Clover.jpg'
   },
   {
@@ -80,5 +80,4 @@ export const filterOptions = [
   { label: "Fantasía", value: "fantasy" },
   { label: "Animación", value: "animation" },
   { label: "Romance", value: "romance" },
-  // Agrega más categorías según tus necesidades
 ];

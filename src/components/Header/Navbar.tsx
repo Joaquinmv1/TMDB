@@ -28,7 +28,7 @@ export default function Navbar() {
           <NavBarRight>
             <AiOutlineSearch />
             <InputSearch type="text" placeholder="Marvel, Naruto, Spider Man..." />
-            <Link to='/login'>
+            <Link to='/movies'>
               <ButtonRight>Sign out</ButtonRight>
             </Link>
           </NavBarRight>

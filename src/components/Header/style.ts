@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components"
 
 export const CarouselContainer = styled.div`
@@ -28,7 +29,7 @@ export const Overlay = styled.div`
   }
 
   p {
-    font-size: 24px;
+    font-size: 23rem;
   }
 
   button{
@@ -40,7 +41,7 @@ export const Overlay = styled.div`
   }
 `;
 
-export const FullViewportImage = styled.div`
+export const FullViewportImage = styled(motion.div)`
   position: relative;
   width: 100%;
   max-height: 90vh;
