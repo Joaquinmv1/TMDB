@@ -18,9 +18,9 @@ export const imageCarrousel = [
     image: '20524-Asta-Black-Clover.jpg'
   },
   {
-    name: 'Asta Fan Art',
-    description: 'Description for Asta Fan Art',
-    image: 'wallpapersden.com_asta-fan-art-black-clover-2022_3000x1500.jpg'
+    name: 'spider man across the spider verse',
+    description: 'Spider-Man: Across the Spider-Verse,  is an upcoming animated superhero film and sequel to the critically acclaimed, The movie continues the story of Miles Morales, a young Afro-Latino teenager who becomes the Spider-Man of his reality. In this new installment, Miles discovers the existence of multiple dimensions and crosses paths with various versions of Spider-Man from different universes. Together, they face new threats and embark on a thrilling and visually stunning adventure that explores the concept of the Spider-Verse. The film promises to deliver a unique and groundbreaking animation style, along with an engaging storyline that expands the Spider-Man mythos.',
+    image: 'SPIDERMAN.png'
   }
 ];
 

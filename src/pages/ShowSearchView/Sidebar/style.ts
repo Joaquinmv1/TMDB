@@ -11,9 +11,24 @@ export const SidebarMain = styled.div`
   width: 50%;
   gap: 10px;
   background-color: #000;
-  overflow-y: auto;
   z-index: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #aaa;
+  
+  &::-webkit-scrollbar {
+    width: 3px; /* Ancho del scrollbar */
+  }
 
+  &::-webkit-scrollbar-track {
+    background-color: #000; /* Color de fondo del scrollbar */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #002; /* Color del thumb del scrollbar */
+    border-radius: 4px; /* Borde del thumb del scrollbar */
+  }
+  
   ul li{
     padding: .7rem 1rem;
     cursor: pointer;

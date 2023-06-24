@@ -1,4 +1,4 @@
-import { categoriesCarrousel } from "../../../constants/images";
+import { categoriesCarrousel } from "../../../constants/const";
 import { Movie } from "../../../models/types";
 import { Carrousel } from "./CarrouselRender";
 

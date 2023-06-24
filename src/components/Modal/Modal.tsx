@@ -1,50 +1,11 @@
-import { motion } from "framer-motion";
-import { ContainerModal, ModalContent } from "./styles";
-
-interface ImageCarrousel {
-  name: string;
-  description: string;
-  image: string;
-}
-
 interface ModalProps {
-  currentImage: ImageCarrousel;
-  isVisible: boolean;
-  handleVisibleClick: () => void;
+  children: React.ReactNode
 }
 
-export default function Modal({
-  currentImage,
-  isVisible,
-  handleVisibleClick
-}: ModalProps) {
-
-  const modalVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 2 },
-    exit: { opacity: 0 }
-  };
-
+export default function Modal({ children }: ModalProps) {
   return (
-    <div>
-      {isVisible && (
-        <ContainerModal>
-          <motion.div
-            className="modal"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={modalVariants}
-          >
-            <ModalContent>
-              <img src={currentImage.image} alt="" />
-              <h2>{currentImage.name}</h2>
-              <p>{currentImage.description}</p>
-              <button onClick={handleVisibleClick}>X</button>
-            </ModalContent>
-          </motion.div>
-        </ContainerModal>
-      )}
-    </div>
+    <>
+      {children}
+    </>
   );
 }

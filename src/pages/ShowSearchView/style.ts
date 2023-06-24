@@ -11,7 +11,7 @@ export const UlContainer = styled.ul`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 
   img{
     width: 250px;

@@ -25,7 +25,7 @@ export const Overlay = styled.div`
   transition: opacity 0.3s ease;
 
   h3 {
-    font-size: 5rem;
+    font-size: 3rem;
   }
 
   p {

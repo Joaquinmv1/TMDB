@@ -1,4 +1,4 @@
-import { categories } from "../constants/images";
+import { categories } from "../constants/const";
 
 export const fetchMoviesByCategory = async () => {
   try {

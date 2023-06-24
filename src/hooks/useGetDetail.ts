@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { API_KEY } from '../constants/images';
+import { API_KEY } from '../constants/const';
 
 interface UseProps {
   type: string | undefined;

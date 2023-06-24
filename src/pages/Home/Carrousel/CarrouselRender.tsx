@@ -2,7 +2,7 @@ import { ContainerSwiper, ImageCarrousel, NewPremiersContainer, Svg } from './st
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Movie } from '../../../models/types';
 import { Link } from 'react-router-dom';
-import { BASE_URL } from '../../../constants/images';
+import { BASE_URL } from '../../../constants/const';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -17,7 +17,6 @@ export function Carrousel({ category, movies }: CarrouselProps) {
       <h2>{category}</h2>
       <ContainerSwiper>
         <Swiper
-          navigation={true}
           slidesPerView={9}
           breakpoints={{
             1700: {

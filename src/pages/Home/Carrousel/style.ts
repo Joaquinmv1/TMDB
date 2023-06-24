@@ -39,6 +39,7 @@ export const Svg = styled.div`
 
 export const ImageCarrousel = styled.img`
   width: 200px;
+  height: auto;
   object-fit: contain;
   cursor: pointer;
   transition: all 0.3s ease;
