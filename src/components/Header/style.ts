@@ -78,7 +78,7 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
   position: fixed;
   width: 100%;
   z-index: 1000000;
@@ -122,7 +122,7 @@ export const NavBarLeft = styled.div`
 `
 
 export const NavBarRight = styled.div`
-position: relative;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,7 +136,7 @@ export const Ul = styled.ul`
 `
 
 export const InputSearch = styled.input`
-  width: 250px;
+  width: 300px;
   background-color: transparent;
   font-weight: bold;
   border: none;

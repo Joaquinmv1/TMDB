@@ -17,9 +17,19 @@ export default function Navbar() {
       if (searchTerm) {
         const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${searchTerm}`);
         const json = await res.json();
-        setData(json);
+        const mappedResult = json.results.map((data:any) => (
+          {
+            id: data.id,
+            backdrop_path: data.backdrop_path,
+            description: data.overview,
+            title: data.title,
+            name: data.name,
+            type: data.media_type
+          }
+        ))
+        setData(mappedResult);
       } else {
-        
+
       }
     };
 
@@ -27,7 +37,6 @@ export default function Navbar() {
   }, [searchTerm]);
 
   console.log(data);
-
 
   return (
     <>
@@ -52,12 +61,19 @@ export default function Navbar() {
             </NavBarLeft>
             <NavBarRight>
               <div>
-                <InputSearch value={searchTerm} onChange={e => setSearchTerm(e.target.value)} type="text" placeholder="Search..." />
+                <InputSearch
+                  value={searchTerm}
+                  onChange={e => setSearchTerm(e.target.value)}
+                  type="text"
+                  placeholder="Search..."
+                />
                 {/* <Link to='/movies'>
                 <ButtonRight>Sign out</ButtonRight>
               </Link> */}
                 <AiOutlineSearch />
-                <SearchResults data={data} searchTerm={searchTerm} />
+                <SearchResults
+                  data={data}
+                  searchTerm={searchTerm} />
               </div>
             </NavBarRight>
           </Nav>

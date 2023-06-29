@@ -11,10 +11,10 @@ function App() {
       <AuthProvider>
         {location.pathname !== '/movies' && <Navbar />}
         <Routes>  
-          {/* <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path='/' element={<Home />} />
           <Route path='/:type/:id' element={<Detail />} />
-          <Route path='/movies' element={<ShowSearchView />} /> */}
+          <Route path='/movies' element={<ShowSearchView />} />
         </Routes>
        </AuthProvider>
     </>

@@ -6,4 +6,4 @@ export { default as Modal } from './Modal/Modal';
 export * from './Modal/styles';
 export * from './MoviesCard/MoviesCard';
 export * from './MoviesCard/style';
-export * from './SearchResults/SearchResults';
+export * from './SearchResults';
