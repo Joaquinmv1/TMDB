@@ -8,7 +8,7 @@ export const ContainerDetail = styled.div`
 
 export const ImageBackground = styled.img`
   width: 100%;
-  max-height: 40vh; 
+  max-height: 100vh; 
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,7 +22,7 @@ export const ContainerInfo = styled.div`
   align-items: center;
   gap: 50px;
   position: absolute;
-  top: 140px;
+  top: 120px;
   left: 160px;
   z-index: 2999;
 

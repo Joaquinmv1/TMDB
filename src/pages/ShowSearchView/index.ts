@@ -1,2 +1,2 @@
-export * from './MovieSearchView';
+export * from './ShowSearchView';
 export * from './style';

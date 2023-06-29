@@ -19,7 +19,16 @@ export const HeaderSidebar = styled.div`
 `
 
 export const SidebarLi = styled.li`
-  
+  margin-left: 1.2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+  :hover{
+    background-color: #5694a1;
+    border-radius: 10px;
+    color: #648e97;
+  }
 `
 
 export const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps) => {
@@ -33,13 +42,14 @@ export const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps)
         <ul>
           {filterOptions.map((value) => {
             return (
-              <li
+              <SidebarLi
+                className="sidebar-li"
                 style={{ backgroundColor: selectedCategory === value.value ? "#48c3db" : '', color: '#fff', width: '100%' }}
                 onClick={() => setSelectedCategory(value.value)}
                 key={value.label}
               >
-                <p>{value.label}</p>
-              </li>
+                <span>{value.label}</span>
+              </SidebarLi>
             )
           })}
         </ul>

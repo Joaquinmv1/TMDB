@@ -2,13 +2,13 @@ import { motion } from "framer-motion";
 import styled from "styled-components"
 
 export const CarouselContainer = styled.div`
-  position: relative;
+  /* position: relative; */
 `;
 
 export const Header = styled.header`
   width: 100%;
-  background-color: #fff;
-  position: relative;
+  /* position: relative; */
+  
 `
 
 export const Overlay = styled.div`
@@ -80,14 +80,11 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   align-items: center;
   padding: 1rem;
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  padding: 1rem;
   z-index: 1000000;
+  height: 100px;
   color: #fff;
   transition: background-color 0.3s ease;
-  margin-bottom: 15vh;
   
   ${({ scrolled }) =>
     scrolled &&
@@ -115,12 +112,20 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
 export const NavBarLeft = styled.div`
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  text-align: center;
+  /* gap: 15px; */
+
+  img{
+    width: 100px;
+  }
 `
 
 export const NavBarRight = styled.div`
+position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 `
 
@@ -131,6 +136,7 @@ export const Ul = styled.ul`
 `
 
 export const InputSearch = styled.input`
+  width: 250px;
   background-color: transparent;
   font-weight: bold;
   border: none;

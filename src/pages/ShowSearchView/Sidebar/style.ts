@@ -17,7 +17,7 @@ export const SidebarMain = styled.div`
   scrollbar-color: #aaa;
   
   &::-webkit-scrollbar {
-    width: 3px; /* Ancho del scrollbar */
+    width: 2px; /* Ancho del scrollbar */
   }
 
   &::-webkit-scrollbar-track {
@@ -25,10 +25,9 @@ export const SidebarMain = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #002; /* Color del thumb del scrollbar */
+    background-color: #48c3db; /* Color del thumb del scrollbar */
     border-radius: 4px; /* Borde del thumb del scrollbar */
   }
-  
   ul li{
     padding: .7rem 1rem;
     cursor: pointer;

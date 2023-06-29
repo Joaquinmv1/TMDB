@@ -3,7 +3,6 @@ import { useAuth } from "../../hooks";
 
 import { ContainerLogin, InfoLogin } from ".";
 
-
 export const Login = () => {
   const navigate = useNavigate();
   const { SignIn, user } = useAuth();

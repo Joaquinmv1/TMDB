@@ -61,10 +61,6 @@ export function Carrousel({ category, movies }: CarrouselProps) {
                   src={`${BASE_URL}${movie.poster_path}`}
                   alt={`Movie ${movie.title}`}
                 />
-               {/* <Svg>
-                <MdViewCompact />
-                <BsFillHeartFill />
-               </Svg> */}
               </Link>
             </SwiperSlide>
           ))}

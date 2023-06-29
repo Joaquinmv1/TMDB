@@ -2,38 +2,68 @@ import { ButtonRight, CarouselContainer, Header, InputSearch, Nav, NavBarLeft, N
 import { useScroll } from "../../hooks";
 import { Link } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { API_KEY } from '../../constants/const';
+import { SearchResults } from '..';
 
 export default function Navbar() {
+  const [searchTerm, setSearchTerm] = useState<any | null>('');
+  const [data, setData] = useState();
   const scroll = useScroll();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (searchTerm) {
+        const res = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${searchTerm}`);
+        const json = await res.json();
+        setData(json);
+      } else {
+        
+      }
+    };
+
+    fetchData();
+  }, [searchTerm]);
+
+  console.log(data);
+
+
   return (
-    <CarouselContainer>
-      <Header>
-        <Nav scrolled={scroll}>
-          <NavBarLeft>
-            <Link className='link' to='/'>
-              <h2>PicturePandemonium</h2>
-            </Link>
-            <Ul>
+    <>
+      <CarouselContainer>
+        <Header>
+          <Nav scrolled={scroll}>
+            <NavBarLeft>
               <Link className='link' to='/'>
-                <li>
-                  Home
-                </li>
+                <img src="logo.png" alt="" />
               </Link>
-              <li>Movies</li>
-              <li>Series</li>
-              <li>Anime</li>
-              <li>My List</li>
-            </Ul>
-          </NavBarLeft>
-          <NavBarRight>
-            <AiOutlineSearch />
-            <InputSearch type="text" placeholder="Marvel, Naruto, Spider Man..." />
-            <Link to='/movies'>
-              <ButtonRight>Sign out</ButtonRight>
-            </Link>
-          </NavBarRight>
-        </Nav>
-      </Header>
-    </CarouselContainer>
+              <Ul>
+                <Link className='link' to='/'>
+                  <li>
+                    Home
+                  </li>
+                </Link>
+                <li>Movies</li>
+                <li>Series</li>
+                <li>Anime</li>
+                <li>My List</li>
+              </Ul>
+            </NavBarLeft>
+            <NavBarRight>
+              <div>
+                <InputSearch value={searchTerm} onChange={e => setSearchTerm(e.target.value)} type="text" placeholder="Search..." />
+                {/* <Link to='/movies'>
+                <ButtonRight>Sign out</ButtonRight>
+              </Link> */}
+                <AiOutlineSearch />
+                <SearchResults data={data} searchTerm={searchTerm} />
+              </div>
+            </NavBarRight>
+          </Nav>
+        </Header>
+      </CarouselContainer>
+
+    </>
   )
 }
