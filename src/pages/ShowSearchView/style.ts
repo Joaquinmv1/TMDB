@@ -13,7 +13,21 @@ export const UlContainer = styled.ul`
   flex-wrap: wrap;
   gap: 10px;
 
+  li{
+    background-color: #48c3db;
+    background-color: rgb(27, 120, 128);
+    
+  }
+
+  li p{
+    width: 200px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
   img{
+    padding: .1rem;
     width: 250px;
     cursor: pointer;
   }

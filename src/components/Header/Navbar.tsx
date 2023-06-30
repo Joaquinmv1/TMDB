@@ -24,7 +24,7 @@ export default function Navbar() {
             description: data.overview,
             title: data.title,
             name: data.name,
-            type: data.media_type
+            type: data.media_type 
           }
         ))
         setData(mappedResult);
@@ -35,8 +35,6 @@ export default function Navbar() {
 
     fetchData();
   }, [searchTerm]);
-
-  console.log(data);
 
   return (
     <>

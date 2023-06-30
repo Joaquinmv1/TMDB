@@ -1,35 +1,10 @@
-import styled from "styled-components"
-import { SidebarMain } from "."
+import { HeaderSidebar, SidebarLi, SidebarMain } from "."
 import { filterOptions } from "../../../constants/const"
 
 interface SidebarProps {
   selectedCategory: string
   setSelectedCategory: any
 }
-
-export const HeaderSidebar = styled.div`
-  width: 100%;
-
-  img{
-    width: 100%;
-    height: 200px;
-    filter: brightness(.6) contrast(1.3); 
-    object-fit: contain;
-  }
-`
-
-export const SidebarLi = styled.li`
-  margin-left: 1.2rem;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-
-  :hover{
-    background-color: #5694a1;
-    border-radius: 10px;
-    color: #648e97;
-  }
-`
 
 export const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps) => {
   return (

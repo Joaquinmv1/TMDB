@@ -1,17 +1,22 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetDetail } from "../../hooks";
 import { ContainerDetail, ContainerInfo, ImageBackground, Image, ContentRight, Loader } from "./style";
-import { useState } from "react";
 import { Dna } from 'react-loader-spinner'
 import { AiTwotoneStar } from 'react-icons/ai';
 import { OverviewSection } from "./OverviewSection/OverviewSection";
 import { MoreLikeThisSection, SectionsList, TrailersContent } from "..";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 
 interface Genre {
   id: number
-  name: String
+  name: string
+}
+
+interface Components {
+  [key: string]: React.ReactNode;
+  overview: React.ReactNode;
+  trailers: React.ReactNode;
+  'more like this': React.ReactNode;
 }
 
 export const Detail = () => {
@@ -27,13 +32,11 @@ export const Detail = () => {
     return <Loader><Dna /></Loader>
   }
 
-  const sectionComponents: any = {
-    'overview': <OverviewSection detail={detail} />,
+  const sectionComponents: Components = {
+    'overview': <OverviewSection />,
     'trailers': <TrailersContent detail={detail} />,
     'more like this': <MoreLikeThisSection detail={detail} />,
   };
-
-  // console.log(detail);
 
   return (
     <>
@@ -61,11 +64,6 @@ export const Detail = () => {
             {isSelected === 'overview' ? <OverviewSection detail={detail} /> : sectionComponents[isSelected]}
           </ContentRight>
         </ContainerInfo>
-        <Swiper>
-          <SwiperSlide>
-
-          </SwiperSlide>
-        </Swiper>
       </ContainerDetail>
     </>
   )

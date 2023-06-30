@@ -1,8 +1,9 @@
-import { API_KEY } from '../../constants/const'
+import { API_KEY, categoryUrls } from '../../constants/const'
 import { useEffect, useMemo, useState } from "react"
 import { ShowSearchContainer, UlContainer } from ".";
 import { Sidebar } from '..';
 import { useLocation } from 'react-router-dom';
+import { AiTwotoneStar } from 'react-icons/ai';
 
 const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
 
@@ -21,19 +22,6 @@ export const ShowSearchView = () => {
     if (cachedResults[currentCategory] && cachedResults[currentCategory][searchTerm]) {
       results = cachedResults[currentCategory][searchTerm];
     } else {
-      const categoryUrls = {
-        movies: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`,
-        series: `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`,
-        anime: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16`,
-        top_rated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`,
-        popular: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
-        upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`,
-        now_playing: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`,
-        all_movies: `https://api.themoviedb.org/3/movie?api_key=${API_KEY}`,
-        all_series: `https://api.themoviedb.org/3/series?api_key=${API_KEY}`,
-        all_seasons: `https://api.themoviedb.org/3/seasons?api_key=${API_KEY}`,
-      };
-
       const url = categoryUrls[currentCategory];
 
       if (url) {
@@ -50,9 +38,6 @@ export const ShowSearchView = () => {
     return results;
   };
 
-  console.log(cachedResults);
-  
-
   useEffect(() => {
     getMovies();
   }, [currentCategory, searchTerm]);
@@ -68,6 +53,10 @@ export const ShowSearchView = () => {
                 return (
                   <li key={movie.id}>
                     <img loading='lazy' src={`${BASE_URL}${movie.poster_path}`} alt="" />
+                    <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center', padding: '.5rem'}}>
+                      <p>{movie.title || movie.name}</p>
+                      <p style={{fontSize:'.9rem'}} ><AiTwotoneStar /> {movie.vote_average} </p>
+                    </div>
                   </li>
                 )
               })}

@@ -81,3 +81,16 @@ export const filterOptions = [
   { label: "Animación", value: "animation" },
   { label: "Romance", value: "romance" },
 ];
+
+export const categoryUrls = {
+  movies: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`,
+  series: `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`,
+  anime: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16`,
+  top_rated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`,
+  popular: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
+  upcoming: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`,
+  now_playing: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`,
+  all_movies: `https://api.themoviedb.org/3/movie?api_key=${API_KEY}`,
+  all_series: `https://api.themoviedb.org/3/series?api_key=${API_KEY}`,
+  all_seasons: `https://api.themoviedb.org/3/seasons?api_key=${API_KEY}`,
+};
