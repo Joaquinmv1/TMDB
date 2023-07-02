@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { HeroSlideView } from './HeroSlideView';
+import { HeroSlideView } from './HeroImageView';
 
 export const HeroSlide = () => {
   const [isVisible, setIsVisible] = useState(false);

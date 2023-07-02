@@ -1,5 +1,5 @@
 import { CarrouselRender } from "..";
-import { HeroSlide } from "./HeroSlide/HeroSlide";
+import { HeroSlide } from "./HeroSlide/HeroImage";
 import { useGetMovies } from "../../hooks";
 
 export const Home = () => {
