@@ -6,18 +6,7 @@ import { Dna } from 'react-loader-spinner'
 import { AiTwotoneStar } from 'react-icons/ai';
 import { OverviewSection } from "./OverviewSection/OverviewSection";
 import { MoreLikeThisSection, SectionsList, TrailersContent } from "..";
-
-interface Genre {
-  id: number
-  name: string
-}
-
-interface Components {
-  [key: string]: React.ReactNode;
-  overview: React.ReactNode;
-  trailers: React.ReactNode;
-  'more like this': React.ReactNode;
-}
+import { Components, Genre } from "./types";
 
 export const Detail = () => {
   const { type, id } = useParams();
@@ -25,7 +14,7 @@ export const Detail = () => {
   const { detail, isLoading } = useGetDetail({ type, id });
 
   const handleSelectedClick = (section: string) => {
-    setIsSelected(section)
+    setIsSelected(section);
   }
 
   if (!isLoading) {
@@ -41,7 +30,7 @@ export const Detail = () => {
   return (
     <>
       <ContainerDetail>
-        <ImageBackground src={`https://image.tmdb.org/t/p/w1280/${detail.data.backdrop_path}`} alt={`image banner ${detail.data.title}`} />
+        <ImageBackground src={`https://image.tmdb.org/t/p/w1280/${detail.data.backdrop_path || detail.data.poster_path}`} alt={`image banner ${detail.data.title}`} />
         <ContainerInfo>
           <Image src={`https://image.tmdb.org/t/p/w500/${detail.data.poster_path}`} alt={`image ${detail.data.name}`} />
           <ContentRight>

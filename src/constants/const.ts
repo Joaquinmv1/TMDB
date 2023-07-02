@@ -1,3 +1,5 @@
+import { CategoryUrls } from "../models/types";
+
 export const API_KEY = 'eded4ee4b78f79328cc20b65cd4c2b94';
 export const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
 
@@ -82,7 +84,7 @@ export const filterOptions = [
   { label: "Romance", value: "romance" },
 ];
 
-export const categoryUrls = {
+export const categoryUrls: any = {
   movies: `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`,
   series: `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}`,
   anime: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16`,

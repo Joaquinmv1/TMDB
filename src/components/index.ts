@@ -1,7 +1,9 @@
 export * from './Footer/Footer';
 export * from './Footer/style';
+export * from './Header/Nav';
 export { default as Navbar } from './Header/Navbar';
 export * from './Header/style';
+export * from './Header/types.d';
 export { default as Modal } from './Modal/Modal';
 export * from './Modal/styles';
 export * from './MoviesCard/MoviesCard';

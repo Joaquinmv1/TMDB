@@ -4,6 +4,8 @@ export const ContainerDetail = styled.div`
   position: relative;
   min-height: calc(100vh - 200px);
   width: 100%;
+  background-attachment: fixed;
+  /* position: fixed; */
 `
 
 export const ImageBackground = styled.img`
@@ -13,7 +15,7 @@ export const ImageBackground = styled.img`
   background-size: cover;
   background-repeat: no-repeat;
   image-rendering: auto;
-  filter: brightness(.45) contrast(1.3); 
+  filter: brightness(.45) contrast(1.3);
 `
 
 export const ContainerInfo = styled.div`

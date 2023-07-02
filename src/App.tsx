@@ -1,7 +1,8 @@
 import { Navbar } from "./components";
-import { Routes, Route, useLocation } from "react-router-dom"
+import { Route, useLocation } from "react-router-dom"
 import { Home, Detail, Login, ShowSearchView, } from "./pages";
 import { AuthProvider } from "./context/Auth";
+import { RouteWithNotFound } from "./utils/RouteWithNotFound";
 
 function App() {
   const location = useLocation();
@@ -10,12 +11,12 @@ function App() {
     <>
       <AuthProvider>
         {location.pathname !== '/movies' && <Navbar />}
-        <Routes>  
+        <RouteWithNotFound>  
           <Route path="/login" element={<Login />} />
           <Route path='/' element={<Home />} />
           <Route path='/:type/:id' element={<Detail />} />
           <Route path='/movies' element={<ShowSearchView />} />
-        </Routes>
+        </RouteWithNotFound>
        </AuthProvider>
     </>
   );

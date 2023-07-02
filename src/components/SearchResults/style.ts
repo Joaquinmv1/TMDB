@@ -28,4 +28,5 @@ export const ButtonSearch = styled.button`
   width: 100%;
   border: none;
   padding: .3rem;
+  cursor: pointer;
 `

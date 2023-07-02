@@ -49,7 +49,6 @@ export const FullViewportImage = styled(motion.div)`
   background-color: #fff;
   aspect-ratio: 16/9;
   overflow: hidden;
-  z-index: 1000;
   
   &::before {
     content: "";
@@ -59,6 +58,8 @@ export const FullViewportImage = styled(motion.div)`
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1));
+  /* background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 5%,hsla(0,0%,8%,.35)19%,hsla(0,0%,8%,.58) 44%,#141414 150%,#141414); */
+  /* background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 15%,hsla(0,0%,8%,.35) 29%,hsla(0,0%,8%,.58) 44%,#141414 68%,#141414); */
   }
 
   img {
@@ -74,7 +75,7 @@ export const FullViewportImage = styled(motion.div)`
   }
 `;
 
-export const Nav = styled.nav<{ scrolled: boolean }>`
+export const Navv = styled.nav<{ scrolled: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,26 +83,24 @@ export const Nav = styled.nav<{ scrolled: boolean }>`
   position: fixed;
   width: 100%;
   z-index: 1000000;
-  height: 100px;
+  height: 50px;
   color: #fff;
   transition: background-color 0.3s ease;
-  
+  background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+
+
   ${({ scrolled }) =>
     scrolled &&
-    `
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-  `}
+    `background-color: rgb(0, 0, 0);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);`}
 
   &::before {
       content: "";
       position: absolute;
-      top: -4px;
       left: 0;
       width: 100%;
-      height: 4px;
       background-color: rgba(0, 0, 0, 0.2);
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.20);
     }
 
   & h2 {

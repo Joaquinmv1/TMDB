@@ -2,7 +2,13 @@ import styled from "styled-components";
 
 export const ContainerSwiper = styled.div`
   width: 100%;
-  
+  /* position: relative; */
+  padding: 0 .5%;
+
+  img {
+
+
+  }
 `
 
 export const NewPremiersContainer = styled.div`
@@ -18,18 +24,14 @@ export const NewPremiersContainer = styled.div`
 export const Svg = styled.div`
   position: absolute;
   top: 50%;
-  /* left: 50%; */
   z-index: 10005;
   width: 100%;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   opacity: 0;
 
   svg {
     font-size: 2rem;
     cursor: pointer;
-    transition: opacity 0.3s ease-in-out 0.2s; /* Ajustar aquí el retraso de la transición */
+    transition: opacity 0.3s ease-in-out 0.2s; 
 
     &:hover {
       opacity: 1;
@@ -39,8 +41,9 @@ export const Svg = styled.div`
 
 export const ImageCarrousel = styled.img`
   width: 200px;
-  height: auto;
-  object-fit: contain;
+  height: 300px;
+  object-fit: cover;
+  aspect-ratio: 16/9;
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -49,9 +52,4 @@ export const ImageCarrousel = styled.img`
     transition: all 0.4s ease;
     transform: scale(1.1);
   }
-
-  /* &:hover + ${Svg} {
-    display: flex;
-    justify-content: center;
-  } */
 `;

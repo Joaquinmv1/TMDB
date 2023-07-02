@@ -15,7 +15,7 @@ interface AuthContextProps {
 export const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider = ({ children }: ContextProps) => {
-  const [user, setUser] = useState<Object | null>({});
+  const [user, setUser] = useState<any>({});
 
   const SignIn = () => {
     const provider = new GoogleAuthProvider();

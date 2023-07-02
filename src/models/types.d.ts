@@ -6,6 +6,7 @@ export interface Movie {
   type: string
   backdrop_path: string
   name: string
+  description: string
 }
 
 export interface Detail {
@@ -17,4 +18,17 @@ export interface Detail {
   first_air_date: string
   overview: string
   genres: Array
+}
+
+export interface CategoryUrls {
+  movies: string;
+  series: string;
+  anime: string;
+  top_rated: string;
+  popular: string;
+  upcoming: string;
+  now_playing: string;
+  all_movies: string;
+  all_series: string;
+  all_seasons: string;
 }

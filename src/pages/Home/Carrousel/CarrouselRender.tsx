@@ -17,10 +17,13 @@ export function Carrousel({ category, movies }: CarrouselProps) {
       <h2>{category}</h2>
       <ContainerSwiper>
         <Swiper
-          slidesPerView={9}
+          slidesPerView={8}
+          loop={true}
+          direction="horizontal"
           breakpoints={{
             1700: {
               slidesPerView: 9,
+              spaceBetween: 0
             },
             1500: {
               slidesPerView: 8,
@@ -58,7 +61,7 @@ export function Carrousel({ category, movies }: CarrouselProps) {
             <SwiperSlide key={movie.id}>
               <Link to={`${movie.type}/${movie.id}`}>
                 <ImageCarrousel
-                  src={`${BASE_URL}${movie.poster_path}`}
+                  src={`${BASE_URL}${movie.poster_path || movie.backdrop_path}`}
                   alt={`Movie ${movie.title}`}
                 />
               </Link>

@@ -1,4 +1,4 @@
-import { API_KEY, categoryUrls } from '../../constants/const'
+import { categoryUrls } from '../../constants/const'
 import { useEffect, useMemo, useState } from "react"
 import { ShowSearchContainer, UlContainer } from ".";
 import { Sidebar } from '..';
@@ -8,18 +8,20 @@ import { AiTwotoneStar } from 'react-icons/ai';
 const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
 
 export const ShowSearchView = () => {
-  const [movies, setMovies] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState('movies');
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const searchTerm = searchParams.get('query');
+  const [movies, setMovies] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState('movies');
 
-  const cachedResults = useMemo(() => ({}), []);
+  const cachedResults: { [key: string]: { [key: string]: any[] } } = useMemo(() => ({}), []);
 
   const getMovies = async () => {
     let results;
 
-    if (cachedResults[currentCategory] && cachedResults[currentCategory][searchTerm]) {
+    if (cachedResults[currentCategory] &&
+      searchTerm &&
+      cachedResults[currentCategory][searchTerm]) {
       results = cachedResults[currentCategory][searchTerm];
     } else {
       const url = categoryUrls[currentCategory];
@@ -53,9 +55,9 @@ export const ShowSearchView = () => {
                 return (
                   <li key={movie.id}>
                     <img loading='lazy' src={`${BASE_URL}${movie.poster_path}`} alt="" />
-                    <div style={{display: 'flex', flexDirection: 'column', justifyContent:'center', padding: '.5rem'}}>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '.5rem' }}>
                       <p>{movie.title || movie.name}</p>
-                      <p style={{fontSize:'.9rem'}} ><AiTwotoneStar /> {movie.vote_average} </p>
+                      <p style={{ fontSize: '.9rem' }} ><AiTwotoneStar /> {movie.vote_average} </p>
                     </div>
                   </li>
                 )
