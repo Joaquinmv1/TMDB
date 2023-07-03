@@ -10,9 +10,9 @@ export const ContainerDetail = styled.div`
 
 export const ImageBackground = styled.img`
   width: 100%;
-  /* max-height: 100vh;  */
-  background-position: center;
-  background-size: cover;
+  max-height: 400px; 
+  object-fit: cover;
+  object-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   image-rendering: auto;

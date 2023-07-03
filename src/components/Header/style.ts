@@ -16,6 +16,8 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
   flex-flow:wrap column;
   gap: 10px;
   color: white;
@@ -126,7 +128,6 @@ export const NavBarLeft = styled.div`
 `
 
 export const NavBarRight = styled.div`
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,11 +140,13 @@ export const Ul = styled.ul`
   cursor: pointer;
 `
 
+
 export const InputSearch = styled.input`
   background-color: rgba(0,0,0,0.5);
   padding: .5rem;
   font-weight: bold;
   border-radius: 12px;
+  position: relative;
   border: none;
   color: #c2c2c2; 
   border-bottom: none;
@@ -157,8 +160,17 @@ export const InputSearch = styled.input`
 export const ButtonRight = styled.button`
   background-color: #48c3db;
   color: #fff;
-  padding: .65rem 1rem;
+  padding: .4rem 1rem;
   border: none;
+  font-weight: bold;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 5px;
+`
+
+export const ButtonLeft = styled.button`
+  padding: .4rem 1rem;
+  background-color: transparent;
+  color: #c2c2c2;
+  border: none;
+  font-weight: bold;
 `

@@ -11,14 +11,14 @@ function App() {
     <>
       <AuthProvider>
         {location.pathname !== '/movies' && <Navbar />}
-        <RouteWithNotFound>  
+        <RouteWithNotFound>
           <Route path="/login" element={<Login />} />
           <Route path='/' element={<Home />} />
           <Route path='/:type/:id' element={<Detail />} />
           <Route path='/movies' element={<ShowSearchView />} />
         </RouteWithNotFound>
         {/* <Footer /> */}
-       </AuthProvider>
+      </AuthProvider>
     </>
   );
 }

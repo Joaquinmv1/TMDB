@@ -1,9 +1,14 @@
-import { BsFillPlayFill } from "react-icons/bs"
-import { ContainerModal, FullViewportImage, Modal, ModalContent, Overlay } from "../../../components"
-import { imageCarrousel } from "../../../constants/const"
-import { AiOutlinePlus } from "react-icons/ai"
+// COMPONENTS - STYLES
+import { ContainerModal, FullViewportImage, Modal, ModalContent, Overlay } from "../../../components";
+import { ImageHero, ImageHeroLogo, ImgStar } from "./style";
+
+// ICONS
+import { BsFillPlayFill } from "react-icons/bs";
+import { AiOutlinePlus } from "react-icons/ai";
+import { SlOptionsVertical } from "react-icons/sl";
+
+import { imageCarrousel } from "../../../constants/const";
 import { motion } from "framer-motion"
-import styled from "styled-components"
 
 interface Props {
   handleVisibleClick: () => void;
@@ -15,19 +20,6 @@ const modalVariants = {
   visible: { opacity: 2 },
   exit: { opacity: 0 }
 };
-
-export const ImageHero = styled.img`
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-`
-
-
-export const ImageHeroLogo = styled.img`
-  width: 30%;
-`
-
 
 export const HeroImageView = ({ handleVisibleClick, isVisible }: Props) => {
   return (
@@ -45,15 +37,21 @@ export const HeroImageView = ({ handleVisibleClick, isVisible }: Props) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <ImageHeroLogo src="644884.png" alt="" />
+            <ImageHeroLogo src="644884.png" alt="hero logo" />
+            <p style={{ fontWeight: 'bold' }}>Action - Adventure - Comedy | 20 October 1999 (JPN)</p>
             <p style={{ fontSize: '1rem', width: '600px' }}>{imageCarrousel[0].description}</p>
-            <div style={{ display: 'flex', gap: '10px' }}>
+            <ImgStar src="https://o.remove.bg/downloads/c0fb79b5-3676-4246-9f38-af62d5344a09/star-removebg-preview.png" alt="" />
+            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
               <button >
                 <BsFillPlayFill /> Play
               </button>
               <button onClick={handleVisibleClick}>
                 <AiOutlinePlus /> Ver mas
               </button>
+              <div>
+                <AiOutlinePlus /> Favorites
+              </div>
+              <SlOptionsVertical />
             </div>
           </Overlay>
         </FullViewportImage>
