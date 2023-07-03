@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { InputSearch, NavBarLeft, NavBarRight, Navv, SearchResults, Ul } from ".."
+import { ButtonRight, InputSearch, NavBarLeft, NavBarRight, Navv, SearchResults, Ul } from ".."
 import { AiOutlineSearch } from "react-icons/ai"
 import { useScroll } from "../../hooks";
 import { NavProps } from "./types";
@@ -38,17 +38,18 @@ export const Nav = ({ searchTerm, data, setSearchTerm }: NavProps) => {
               onChange={e => setSearchTerm(e.target.value)}
               type="text"
               placeholder="Search..."
+
             />
-            {/* <Link to='/movies'>
-                <ButtonRight>Sign out</ButtonRight>
-              </Link> */}
-            <AiOutlineSearch />
+            <AiOutlineSearch style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)' }} />
             <SearchResults
               data={data}
               searchTerm={searchTerm}
             />
           </div>
         </NavBarRight>
+        {/* <Link to='/movies'>
+          <ButtonRight>Sign out</ButtonRight>
+        </Link> */}
       </Navv>
     </>
   )

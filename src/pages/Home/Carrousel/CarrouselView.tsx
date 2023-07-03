@@ -1,4 +1,4 @@
-import { ContainerSwiper, ImageCarrousel, NewPremiersContainer, Svg } from './style';
+import { ContainerSwiper, ImageCarrousel, NewPremiersContainer } from './style';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Movie } from '../../../models/types';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ interface CarrouselProps {
   movies: Movie[];
 }
 
-export function Carrousel({ category, movies }: CarrouselProps) {
+export function CarrouselView({ category, movies }: CarrouselProps) {
   return (
     <NewPremiersContainer>
       <h2>{category}</h2>

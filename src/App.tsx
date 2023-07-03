@@ -1,4 +1,4 @@
-import { Navbar } from "./components";
+import { Footer, Navbar } from "./components";
 import { Route, useLocation } from "react-router-dom"
 import { Home, Detail, Login, ShowSearchView, } from "./pages";
 import { AuthProvider } from "./context/Auth";
@@ -17,6 +17,7 @@ function App() {
           <Route path='/:type/:id' element={<Detail />} />
           <Route path='/movies' element={<ShowSearchView />} />
         </RouteWithNotFound>
+        {/* <Footer /> */}
        </AuthProvider>
     </>
   );

@@ -10,10 +10,11 @@ export const ContainerDetail = styled.div`
 
 export const ImageBackground = styled.img`
   width: 100%;
-  max-height: 100vh; 
+  /* max-height: 100vh;  */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   image-rendering: auto;
   filter: brightness(.45) contrast(1.3);
 `

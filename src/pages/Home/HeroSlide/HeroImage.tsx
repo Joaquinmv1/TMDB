@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { HeroSlideView } from './HeroImageView';
+import { HeroImageView } from './HeroImageView';
 
-export const HeroSlide = () => {
+export const HeroImage = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleVisibleClick = () => {
@@ -9,7 +9,7 @@ export const HeroSlide = () => {
   }
 
   return (
-    <HeroSlideView
+    <HeroImageView
       handleVisibleClick={handleVisibleClick}
       isVisible={isVisible}
     />

@@ -27,7 +27,7 @@ export const imageCarrousel = [
 ];
 
 
-export const categoriesCarrousel = ['ultimos estrenos', 'Anime', 'Películas', 'Series', 'calificacion', 'popular']
+export const categoriesCarrousel = ['ultimos estrenos', 'Anime', 'Películas', 'Series', 'calificacion']
 
 export const categories = [
   {
@@ -55,11 +55,6 @@ export const categories = [
     category: 'calificacion',
     type: 'movie'
   },
-  {
-    apiUrl: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&sort_by=popularity.desc`,
-    category: 'popular',
-    type: 'tv'
-  }
 ];
 
 export const filterOptions = [

@@ -1,5 +1,5 @@
 import { AiTwotoneStar } from "react-icons/ai"
-import { ContainerDetail, Image, ContainerInfo, ContentRight, ImageBackground, MoreLikeThisSection, OverviewSection, SectionsList, TrailersContent, Loader } from "."
+import { ContainerDetail, Image, ContainerInfo, ContentRight, ImageBackground, OverviewSection, SectionsList, Loader } from "."
 import { Components, Genre } from "./types";
 import { Dna } from "react-loader-spinner";
 
@@ -12,8 +12,6 @@ interface Props {
 }
 
 export const DetailView = (props: Props) => {
-
-
   if (!props.isLoading) {
     return <Loader><Dna /></Loader>
   }
@@ -25,7 +23,7 @@ export const DetailView = (props: Props) => {
         <ContainerInfo>
           <Image src={`https://image.tmdb.org/t/p/w500/${props.detail.data.poster_path}`} alt={`image ${props.detail.data.name}`} />
           <ContentRight>
-            <div className="aaaa">
+            <div className="details">
               <h2 style={{ paddingBottom: '.8rem' }}>{props.detail.data.name || props.detail.data.title}</h2>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <p style={{ fontSize: '1.2rem', textAlign: 'center' }}>{props.detail.data.vote_average}</p>
@@ -35,9 +33,11 @@ export const DetailView = (props: Props) => {
             <p style={{ color: '#afadad', fontWeight: 'bold' }}>{props.detail.data.first_air_date || props.detail.data.release_date} | type: {props.detail.data.last_episode_to_air?.episode_number ?? 'Movie'} | 16+</p>
             <div style={{ display: 'flex', gap: '10px', paddingBlock: '1rem' }}>
               {props.detail.data.genres.map((genre: Genre) => {
-                return <p style={{ padding: '.5rem 1.5rem', borderRadius: '20px', border: '2px solid #fff', fontSize: '.8rem', fontWeight: 'bold' }} key={genre.id}>
-                  {genre.name}
-                </p>
+                return (
+                  <p style={{ padding: '.5rem 1.5rem', borderRadius: '20px', border: '2px solid #fff', fontSize: '.8rem', fontWeight: 'bold' }} key={genre.id}>
+                    {genre.name}
+                  </p>
+                )
               })}
             </div>
             <SectionsList handleSelectedClick={props.handleSelectedClick} isSelected={props.isSelected} />

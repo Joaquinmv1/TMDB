@@ -2,18 +2,16 @@ import { motion } from "framer-motion";
 import styled from "styled-components"
 
 export const CarouselContainer = styled.div`
-  /* position: relative; */
 `;
 
 export const Header = styled.header`
   width: 100%;
-  /* position: relative; */
   
 `
 
 export const Overlay = styled.div`
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 10%;
   width: 100%;
   height: 100%;
@@ -37,7 +35,23 @@ export const Overlay = styled.div`
     width: 8rem;
     padding: .5rem;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: .3s ease;
+  }
+
+  button:first-child {
+    color: #fff;
+    background-color: #48c3db;
+  }
+
+  button:first-child:hover {
+    background-color: #40A0A8;
+  }
+
+  button:nth-child(2):hover {
+    color: #fff;
+    background-color: #C4C9C9;
   }
 `;
 
@@ -62,13 +76,6 @@ export const FullViewportImage = styled(motion.div)`
   /* background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 15%,hsla(0,0%,8%,.35) 29%,hsla(0,0%,8%,.58) 44%,#141414 68%,#141414); */
   }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-
   p{
     width: 500px;
     font-size: 1rem;
@@ -87,7 +94,6 @@ export const Navv = styled.nav<{ scrolled: boolean }>`
   color: #fff;
   transition: background-color 0.3s ease;
   background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
-
 
   ${({ scrolled }) =>
     scrolled &&
@@ -113,7 +119,6 @@ export const NavBarLeft = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* gap: 15px; */
 
   img{
     width: 100px;
@@ -135,14 +140,17 @@ export const Ul = styled.ul`
 `
 
 export const InputSearch = styled.input`
-  width: 300px;
-  background-color: transparent;
+  background-color: rgba(0,0,0,0.5);
+  padding: .5rem;
   font-weight: bold;
+  border-radius: 12px;
   border: none;
-  color: #fff; /* Cambia el color del marcador de posición aquí */
+  color: #c2c2c2; 
+  border-bottom: none;
+  outline: none;
   
   ::placeholder {
-    color: #fff; /* Cambia el color del marcador de posición aquí */
+    color: #fff; 
   }
 `
 

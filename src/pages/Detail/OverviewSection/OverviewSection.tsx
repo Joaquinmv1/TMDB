@@ -3,7 +3,7 @@ import { CastList } from ".."
 
 interface Genre {
   id: number
-  name: String
+  name: string
 }
 
 export const InfoContainer = styled.div`

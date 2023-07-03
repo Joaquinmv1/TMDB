@@ -32,3 +32,8 @@ export interface CategoryUrls {
   all_series: string;
   all_seasons: string;
 }
+
+export interface Cast {
+  name: string;
+  profile_path:string
+}

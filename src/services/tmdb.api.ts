@@ -15,6 +15,8 @@ export const fetchMoviesByCategory = async () => {
 
     const moviesByCategory = await Promise.all(requests);
     const allMovies = moviesByCategory.flat();
+    console.log(allMovies);
+    
     
     return allMovies;
   } catch (error) {

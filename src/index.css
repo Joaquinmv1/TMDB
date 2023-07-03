@@ -15,14 +15,14 @@ li {
   list-style: none;
 }
 
-.aaaa{
+.details{
   display: flex;
   justify-content: space-between;
   text-align: center;
   align-items: center;
 }
 
-.aaaa p{
+.details p{
   font-weight: bold;
   font-size: .9rem;
 }

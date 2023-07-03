@@ -3,6 +3,7 @@ import { ContainerModal, FullViewportImage, Modal, ModalContent, Overlay } from 
 import { imageCarrousel } from "../../../constants/const"
 import { AiOutlinePlus } from "react-icons/ai"
 import { motion } from "framer-motion"
+import styled from "styled-components"
 
 interface Props {
   handleVisibleClick: () => void;
@@ -15,8 +16,20 @@ const modalVariants = {
   exit: { opacity: 0 }
 };
 
+export const ImageHero = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+`
 
-export const HeroSlideView = ({ handleVisibleClick, isVisible }: Props) => {
+
+export const ImageHeroLogo = styled.img`
+  width: 30%;
+`
+
+
+export const HeroImageView = ({ handleVisibleClick, isVisible }: Props) => {
   return (
     <>
       <div>
@@ -25,17 +38,17 @@ export const HeroSlideView = ({ handleVisibleClick, isVisible }: Props) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <img src={imageCarrousel[0].image} alt={`Slide 0`} />
+          <ImageHero src={imageCarrousel[0].image} alt={`Slide 0`} />
           <Overlay
             as={motion.div}
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h3>{imageCarrousel[0].name}</h3>
+            <ImageHeroLogo src="644884.png" alt="" />
             <p style={{ fontSize: '1rem', width: '600px' }}>{imageCarrousel[0].description}</p>
             <div style={{ display: 'flex', gap: '10px' }}>
-              <button style={{ backgroundColor: '#48c3db', color: 'white', textAlign: 'center' }}>
+              <button >
                 <BsFillPlayFill /> Play
               </button>
               <button onClick={handleVisibleClick}>

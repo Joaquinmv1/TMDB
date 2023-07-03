@@ -1,23 +1,23 @@
 import { categoriesCarrousel } from "../../../constants/const";
 import { Movie } from "../../../models/types";
-import { Carrousel } from "./CarrouselRender";
+import { CarrouselView } from "./CarrouselView";
 
 interface CarrouselProps {
   movies: Array<Movie>
   isLoading: boolean
 }
 
-export const CarrouselRender = ({ movies }: CarrouselProps) => {
+export const Carrousel = ({ movies }: CarrouselProps) => {
   return (
     <>
-      <div>
+      <section>
         {categoriesCarrousel.map((category) => {
           const categoryMovies = movies.filter((movie: Movie) => movie.category === category);
           return (
-            <Carrousel key={category} category={category} movies={categoryMovies} />
+            <CarrouselView key={category} category={category} movies={categoryMovies} />
           );
         })}
-      </div>
+      </section>
     </>
   )
 }
