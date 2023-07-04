@@ -14,8 +14,8 @@ interface CarrouselProps {
 export function CarrouselView({ category, movies }: CarrouselProps) {
   return (
     <NewPremiersContainer>
-      <h2>{category}</h2>
       <ContainerSwiper>
+      <h2>{category}</h2>
         <Swiper
           slidesPerView={8}
           loop={true}

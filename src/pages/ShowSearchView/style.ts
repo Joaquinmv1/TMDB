@@ -10,13 +10,15 @@ export const UlContainer = styled.ul`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   flex-wrap: wrap;
   gap: 10px;
 
   li{
-    background-color: #48c3db;
-    background-color: rgb(27, 120, 128);
-    
+    /* background-color: rgb(27, 120, 128); */
+    /* background-color: #48c3db; */
+    width:15%;
+    height: 300px;
   }
 
   li p{
@@ -27,8 +29,11 @@ export const UlContainer = styled.ul`
   }
 
   img{
-    padding: .1rem;
-    width: 250px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
     cursor: pointer;
   }
 `

@@ -7,6 +7,7 @@ export interface Movie {
   backdrop_path: string
   name: string
   description: string
+  vote_average:string
 }
 
 export interface Detail {

@@ -1,11 +1,10 @@
-import { categoryUrls } from '../../constants/const'
+import { BASE_URL, categoryUrls } from '../../constants/const'
 import { useEffect, useMemo, useState } from "react"
 import { ShowSearchContainer, UlContainer } from ".";
 import { Sidebar } from '..';
 import { useLocation } from 'react-router-dom';
 import { AiTwotoneStar } from 'react-icons/ai';
-
-const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
+import { Movie } from '../../models/types';
 
 export const ShowSearchView = () => {
   const location = useLocation();
@@ -14,7 +13,7 @@ export const ShowSearchView = () => {
   const [movies, setMovies] = useState([]);
   const [currentCategory, setCurrentCategory] = useState('movies');
 
-  const cachedResults: { [key: string]: { [key: string]: any[] } } = useMemo(() => ({}), []);
+  const cachedResults: { [key: string]: { [key: string]: unknown[] } } = useMemo(() => ({}), []);
 
   const getMovies = async () => {
     let results;
@@ -47,11 +46,14 @@ export const ShowSearchView = () => {
   return (
     <>
       <ShowSearchContainer>
-        <Sidebar selectedCategory={currentCategory} setSelectedCategory={setCurrentCategory} />
+        <Sidebar
+          selectedCategory={currentCategory}
+          setSelectedCategory={setCurrentCategory}
+        />
         <div>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <UlContainer>
-              {movies?.map((movie: any) => {
+              {movies?.map((movie: Movie) => {
                 return (
                   <li key={movie.id}>
                     <img loading='lazy' src={`${BASE_URL}${movie.poster_path}`} alt="" />

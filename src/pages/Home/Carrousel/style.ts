@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const ContainerSwiper = styled.div`
   width: 100%;
-  /* position: relative; */
+  /* position: relative;
+  top: 680px; */
   padding: 0 .5%;
 
   img {

@@ -1,6 +1,4 @@
-import { CategoryUrls } from "../models/types";
-
-export const API_KEY = 'eded4ee4b78f79328cc20b65cd4c2b94';
+export const API_KEY = import.meta.env.VITE_PRIVATE_API_KEY;
 export const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
 
 export const imageCarrousel = [
@@ -90,4 +88,10 @@ export const categoryUrls: any = {
   all_movies: `https://api.themoviedb.org/3/movie?api_key=${API_KEY}`,
   all_series: `https://api.themoviedb.org/3/series?api_key=${API_KEY}`,
   all_seasons: `https://api.themoviedb.org/3/seasons?api_key=${API_KEY}`,
+};
+
+export const modalVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 2 },
+  exit: { opacity: 0 }
 };

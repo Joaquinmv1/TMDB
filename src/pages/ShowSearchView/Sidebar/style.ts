@@ -8,7 +8,7 @@ export const SidebarMain = styled.div`
   align-items: flex-start;
   flex-direction: column;
   height: 100vh;
-  width: 50%;
+  width: 40%;
   gap: 10px;
   background-color: #000;
   z-index: 1;

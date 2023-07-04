@@ -12,5 +12,5 @@ export const ImageHeroLogo = styled.img`
 
 export const ImgStar = styled.img`
   width: 12%;
-  /* padding: .1rem; */
+  margin-inline: -15px;
 `

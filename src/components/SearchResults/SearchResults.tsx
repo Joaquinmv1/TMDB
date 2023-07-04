@@ -12,7 +12,7 @@ export const SearchResults = ({ data, searchTerm }: SearchProps) => {
           {data.slice(0, 5).map((result: Movie) => (
             <Link className="link" key={result.id} to={`/${result.type}/${result.id}`}>
               <li>
-                <img width={100} src={`${BASE_URL}${result.backdrop_path}`} alt="" />
+                <img width={100} src={`${BASE_URL}${result.backdrop_path}`} alt="result" />
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <p style={{ fontSize: '1rem' }}>{result.title || result.name}</p>
                   <p style={{ fontSize: '.8rem' }}>{result.description}</p>

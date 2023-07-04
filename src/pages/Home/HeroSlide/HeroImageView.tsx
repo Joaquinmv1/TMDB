@@ -7,19 +7,13 @@ import { BsFillPlayFill } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 import { SlOptionsVertical } from "react-icons/sl";
 
-import { imageCarrousel } from "../../../constants/const";
+import { imageCarrousel, modalVariants } from "../../../constants/const";
 import { motion } from "framer-motion"
 
 interface Props {
   handleVisibleClick: () => void;
   isVisible: boolean;
 }
-
-const modalVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 2 },
-  exit: { opacity: 0 }
-};
 
 export const HeroImageView = ({ handleVisibleClick, isVisible }: Props) => {
   return (
@@ -68,7 +62,7 @@ export const HeroImageView = ({ handleVisibleClick, isVisible }: Props) => {
                 variants={modalVariants}
               >
                 <ModalContent>
-                  <img src={imageCarrousel[0].image} alt="" />
+                  <img src={imageCarrousel[0].image} alt="modal" />
                   <h2>{imageCarrousel[0].name}</h2>
                   <p>{imageCarrousel[0].description}</p>
                   <button onClick={handleVisibleClick}>X</button>

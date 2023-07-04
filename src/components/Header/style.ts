@@ -8,22 +8,20 @@ export const Header = styled.header`
   width: 100%;
   
 `
-
 export const Overlay = styled.div`
   position: absolute;
-  top: 35%;
+  top: 25%;
   left: 10%;
   width: 100%;
   height: 100%;
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
+
   flex-flow:wrap column;
   gap: 10px;
   color: white;
   z-index: 100;
   transition: opacity 0.3s ease;
-
+  
   h3 {
     font-size: 3rem;
   }
@@ -58,6 +56,7 @@ export const Overlay = styled.div`
 `;
 
 export const FullViewportImage = styled(motion.div)`
+  position: absolute;
   position: relative;
   width: 100%;
   max-height: 90vh;
@@ -65,7 +64,7 @@ export const FullViewportImage = styled(motion.div)`
   background-color: #fff;
   aspect-ratio: 16/9;
   overflow: hidden;
-  
+
   &::before {
     content: "";
     position: absolute;
@@ -74,8 +73,8 @@ export const FullViewportImage = styled(motion.div)`
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1));
-  /* background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 5%,hsla(0,0%,8%,.35)19%,hsla(0,0%,8%,.58) 44%,#141414 150%,#141414); */
-  /* background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 15%,hsla(0,0%,8%,.35) 29%,hsla(0,0%,8%,.58) 44%,#141414 68%,#141414); */
+    background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 15%,hsla(0,0%,8%,.35) 20%,hsla(0,0%,8%,.58) 44%,#141414 68%,#141414);
+    background-image: linear-gradient(190deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 5%,hsla(0,0%,8%,.35)10%,hsla(0,0%,8%,.58)60%,#141414 110%,#141414);
   }
 
   p{
@@ -139,7 +138,6 @@ export const Ul = styled.ul`
   gap: 20px;
   cursor: pointer;
 `
-
 
 export const InputSearch = styled.input`
   background-color: rgba(0,0,0,0.5);
