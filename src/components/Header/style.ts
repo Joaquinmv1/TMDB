@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components"
 
-export const CarouselContainer = styled.div`
-`;
-
 export const Header = styled.header`
   width: 100%;
   
@@ -72,9 +69,9 @@ export const FullViewportImage = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1));
     background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 15%,hsla(0,0%,8%,.35) 20%,hsla(0,0%,8%,.58) 44%,#141414 68%,#141414);
-    background-image: linear-gradient(190deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 5%,hsla(0,0%,8%,.35)10%,hsla(0,0%,8%,.58)60%,#141414 110%,#141414);
+    background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 5%,hsla(0,0%,8%,.35)10%,hsla(0,0%,8%,.58)60%,#141414 110%,#141414);
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1));
   }
 
   p{

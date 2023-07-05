@@ -1,28 +1,55 @@
 import styled from "styled-components";
 
 export const ContainerDetail = styled.div`
-  position: relative;
-  min-height: calc(100vh - 200px);
   width: 100%;
-  background-attachment: fixed;
-  /* position: fixed; */
-`
+  min-height: 100vh;
+  /* background-attachment: fixed; */
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  box-Shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    /* filter: brightness(0.45) contrast(1.3) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8)); Agrega sombra al componente */
+    background-image: linear-gradient(
+      180deg,
+      hsla(0, 0%, 8%, 0),
+      hsla(0, 0%, 8%, 0.15) 15%,
+      hsla(0, 0%, 8%, 0.35) 29%,
+      hsla(0, 0%, 8%, 0.58) 44%,
+      #141414 68%,
+      #141414
+    );
+    z-index: 2;
+
+  }
+`;
+
 
 export const ImageBackground = styled.img`
+  min-height: 50vh;
+
   width: 100%;
-  max-height: 400px; 
   object-fit: cover;
   object-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   image-rendering: auto;
-  filter: brightness(.45) contrast(1.3);
-`
+  filter: brightness(0.45) contrast(1.3) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8)); /* Agrega sombra al componente */
+`;
 
 export const ContainerInfo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  /* min-height: 100vh; */
   gap: 50px;
   position: absolute;
   top: 120px;

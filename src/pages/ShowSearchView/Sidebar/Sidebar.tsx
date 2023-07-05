@@ -1,21 +1,34 @@
-import { HeaderSidebar, SidebarLi, SidebarMain } from "."
-import { filterOptions } from "../../../constants/const"
+import { IoMdHome } from "react-icons/io";
+import { IconType } from "react-icons";
+import { BiCameraMovie } from "react-icons/bi";
+// import { PiTelevisionSimpleBold } from "react-icons/";
+import { HeaderSidebar, SidebarLi, SidebarMain } from ".";
+import { filterOptions } from "../../../constants/const";
 
 interface SidebarProps {
-  selectedCategory: string
-  setSelectedCategory: any
+  selectedCategory: string;
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
 }
+
+const iconMap: Record<string, IconType> = {
+  IoMdHome, // Asigna los nombres de los íconos a los componentes correspondientes
+  BiCameraMovie,
+  // PiTelevisionSimpleBold
+};
 
 export const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps) => {
   return (
     <>
       <SidebarMain>
         <HeaderSidebar>
-          <img src="onepiece.jpg" alt="header sidebar" />
+          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" />
+          <h3>Hi, Joaquin!</h3>
+          {/* <img src="onepiece.jpg" alt="header sidebar" /> */}
         </HeaderSidebar>
-        <h3>Nuestras categorias</h3>
+        {/* <h3>Nuestras categorias</h3> */}
         <ul>
           {filterOptions.map((value) => {
+            const IconComponent = iconMap[value.icon];
             return (
               <SidebarLi
                 className="sidebar-li"
@@ -23,9 +36,12 @@ export const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps)
                 onClick={() => setSelectedCategory(value.value)}
                 key={value.label}
               >
-                <span>{value.label}</span>
+                <div style={{ display: 'flex' }}>
+                  <p>{IconComponent && <IconComponent />}</p>
+                  <span>{value.label}</span>
+                </div>
               </SidebarLi>
-            )
+            );
           })}
         </ul>
         <div style={{ margin: '0 auto' }}>
@@ -33,5 +49,5 @@ export const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps)
         </div>
       </SidebarMain>
     </>
-  )
-}
+  );
+};

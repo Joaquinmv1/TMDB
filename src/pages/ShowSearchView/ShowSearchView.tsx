@@ -1,57 +1,59 @@
-import { BASE_URL, categoryUrls } from '../../constants/const'
-import { useEffect, useMemo, useState } from "react"
-import { ShowSearchContainer, UlContainer } from ".";
-import { Sidebar } from '..';
-import { useLocation } from 'react-router-dom';
-import { AiTwotoneStar } from 'react-icons/ai';
-import { Movie } from '../../models/types';
+import { AiTwotoneStar } from "react-icons/ai"
+import { ContainerHeroShow, ContainerShow, ContainerSidebar, ContainerSvgs, ShowSearchContainer, Sidebar, Sort, UlContainer } from ".."
+import { Movie } from "../../models/types"
+import { BASE_URL } from "../../constants/const"
+import { AiOutlineSearch } from "react-icons/ai"
+import { BsBookmark } from "react-icons/bs"
+import { IoMdNotificationsOutline } from "react-icons/io"
 
-export const ShowSearchView = () => {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const searchTerm = searchParams.get('query');
-  const [movies, setMovies] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState('movies');
+interface Props {
+  movies: Movie[];
+  currentCategory: string;
+  setCurrentCategory: React.Dispatch<React.SetStateAction<string>>;
+}
 
-  const cachedResults: { [key: string]: { [key: string]: unknown[] } } = useMemo(() => ({}), []);
-
-  const getMovies = async () => {
-    let results;
-
-    if (cachedResults[currentCategory] &&
-      searchTerm &&
-      cachedResults[currentCategory][searchTerm]) {
-      results = cachedResults[currentCategory][searchTerm];
-    } else {
-      const url = categoryUrls[currentCategory];
-
-      if (url) {
-        const searchUrl = searchTerm ? `${url}&query=${searchTerm}` : url;
-        const res = await fetch(searchUrl);
-        const json = await res.json();
-        results = json.results;
-        setMovies(json.results);
-
-        cachedResults[currentCategory] = results;
-      }
-    }
-
-    return results;
-  };
-
-  useEffect(() => {
-    getMovies();
-  }, [currentCategory, searchTerm]);
-
+export const ShowSearchView = ({ movies, currentCategory, setCurrentCategory }: Props) => {
   return (
     <>
       <ShowSearchContainer>
-        <Sidebar
-          selectedCategory={currentCategory}
-          setSelectedCategory={setCurrentCategory}
-        />
+        {/* <ContainerSidebar>
+          <Sidebar
+            selectedCategory={currentCategory}
+            setSelectedCategory={setCurrentCategory}
+          />
+        </ContainerSidebar> */}
         <div>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', margin: '0 auto', justifyContent: 'center', width: '95%', alignItems: 'center', flexDirection: 'column' }}>
+            {/* <div style={{ display: 'flex', justifyContent: 'space-between', gap: '50px', alignItems: 'center', width: '83%', marginBlock: '1rem' }}>
+              <h3>Featured</h3>
+              <ContainerSvgs>
+                <AiOutlineSearch />
+                <BsBookmark />
+                <IoMdNotificationsOutline />
+              </ContainerSvgs>
+            </div> */}
+            <ContainerHeroShow>
+              <ContainerShow>
+                <img src="harry potter.jpg" alt="" />
+              </ContainerShow>
+            </ContainerHeroShow>
+            <Sort>
+              <select>
+                <option value="category">Category</option>
+              </select>
+              <select>
+                <option value="category">Sort By Year</option>
+              </select>
+              <select>
+                <option value="category">Sort By hours</option>
+              </select>
+              <select>
+                <option value="category">Sort By Rates</option>
+              </select>
+            </Sort>
+            <div style={{ display: 'flex', justifyContent: 'flex-start', width: '82%' }}>
+              <h3 style={{ marginBlock: '1rem', textAlign: 'start' }}>Just Added</h3>
+            </div>
             <UlContainer>
               {movies?.map((movie: Movie) => {
                 return (

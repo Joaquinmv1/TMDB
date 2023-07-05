@@ -8,7 +8,7 @@ export const SidebarMain = styled.div`
   align-items: flex-start;
   flex-direction: column;
   height: 100vh;
-  width: 40%;
+  width: 100%;
   gap: 10px;
   background-color: #000;
   z-index: 1;
@@ -42,12 +42,14 @@ export const SidebarMain = styled.div`
 
 export const HeaderSidebar = styled.div`
   width: 100%;
+  text-align: center;
+  margin-block: 1rem;
 
   img{
-    width: 100%;
-    height: 200px;
-    filter: brightness(.6) contrast(1.3); 
-    object-fit: contain;
+    width:50%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
   }
 `
 
@@ -62,4 +64,8 @@ export const SidebarLi = styled.li`
     border-radius: 10px;
     color: #648e97;
   }
+`
+
+export const ContainerSidebar = styled.div`
+  width: 40%;
 `

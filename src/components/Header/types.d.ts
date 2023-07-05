@@ -9,11 +9,15 @@ export interface Search {
 
 export interface NavProps {
   searchTerm: string
-  data: Array<Movie>  | null
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  data: Array<Movie> | null
+  detectedChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  cleanInput: boolean
+  clearInputValue: () => void
 }
 
 export interface SearchProps {
   data: Array<Movie> | null
   searchTerm: string
+  cleanInput: boolean
+  clearInputValue: () => void
 }

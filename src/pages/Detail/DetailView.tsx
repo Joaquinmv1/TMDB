@@ -18,8 +18,8 @@ export const DetailView = (props: Props) => {
 
   return (
     <>
-      <ContainerDetail>
-        <ImageBackground src={`https://image.tmdb.org/t/p/w1280/${props.detail.data.backdrop_path || props.detail.data.poster_path}`} alt={`image banner ${props.detail.data.title}`} />
+      <ContainerDetail style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${props.detail.data.backdrop_path || props.detail.data.poster_path})` }}>
+        {/* <ImageBackground src={`https://image.tmdb.org/t/p/w1280/${props.detail.data.backdrop_path || props.detail.data.poster_path}`} alt={`image banner ${props.detail.data.title}`} /> */}
         <ContainerInfo>
           <Image src={`https://image.tmdb.org/t/p/w500/${props.detail.data.poster_path}`} alt={`image ${props.detail.data.name}`} />
           <ContentRight>

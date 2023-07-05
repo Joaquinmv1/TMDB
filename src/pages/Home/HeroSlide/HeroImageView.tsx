@@ -34,9 +34,9 @@ export const HeroImageView = ({ handleVisibleClick, isVisible }: Props) => {
             <ImageHeroLogo src="644884.png" alt="hero logo" />
             <p style={{ fontWeight: 'bold' }}>Action - Adventure - Comedy | 20 October 1999 (JPN)</p>
             <p style={{ fontSize: '1rem', width: '600px' }}>{imageCarrousel[0].description}</p>
-            <ImgStar src="https://o.remove.bg/downloads/c0fb79b5-3676-4246-9f38-af62d5344a09/star-removebg-preview.png" alt="" />
+            <ImgStar src="star-removebg-preview (1).png" alt="" />
             <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-              <button >
+              <button>
                 <BsFillPlayFill /> Play
               </button>
               <button onClick={handleVisibleClick}>

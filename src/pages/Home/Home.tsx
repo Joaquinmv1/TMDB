@@ -9,7 +9,7 @@ export const Home = () => {
     <>
       <HeroImage />
       <Carrousel movies={movies} isLoading={isLoading} />
-      {/* <ComingSoon /> */}
+      <ComingSoon />
     </>
   )
 }

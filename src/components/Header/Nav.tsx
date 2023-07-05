@@ -4,7 +4,7 @@ import { AiOutlineSearch } from "react-icons/ai"
 import { useScroll } from "../../hooks";
 import { NavProps } from "./types";
 
-export const Nav = ({ searchTerm, data, setSearchTerm }: NavProps) => {
+export const Nav = ({ searchTerm, data, detectedChange, cleanInput, clearInputValue }: NavProps) => {
   const scroll = useScroll();
   return (
     <>
@@ -35,14 +35,22 @@ export const Nav = ({ searchTerm, data, setSearchTerm }: NavProps) => {
           <div>
             <InputSearch
               value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
+              onChange={(e) => detectedChange(e)}
               type="text"
               placeholder="Search..."
             />
+            {searchTerm &&
+              <button
+                onClick={clearInputValue}
+                style={{ position: 'absolute', right: '230px', top: '50%', transform: 'translateY(-50%)' }}>
+                x
+              </button>}
             <AiOutlineSearch style={{ position: 'absolute', right: '210px', top: '50%', transform: 'translateY(-50%)' }} />
             <SearchResults
               data={data}
               searchTerm={searchTerm}
+              cleanInput={cleanInput}
+              clearInputValue={clearInputValue}
             />
           </div>
           <div>

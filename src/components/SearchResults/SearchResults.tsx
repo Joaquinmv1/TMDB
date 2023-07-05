@@ -4,13 +4,17 @@ import { BASE_URL } from "../../constants/const"
 import { Movie } from "../../models/types"
 import { SearchProps } from "../Header/types"
 
-export const SearchResults = ({ data, searchTerm }: SearchProps) => {
+export const SearchResults = ({ data, searchTerm, cleanInput, clearInputValue }: SearchProps) => {
+  const handleLiClick = () => {
+    clearInputValue(); 
+  }
+
   return (
     <>
       {data && searchTerm.length >= 3 && (
         <UlSearchContainer>
           {data.slice(0, 5).map((result: Movie) => (
-            <Link className="link" key={result.id} to={`/${result.type}/${result.id}`}>
+            <Link onClick={handleLiClick} className="link" key={result.id} to={`/${result.type}/${result.id}`}>
               <li>
                 <img width={100} src={`${BASE_URL}${result.backdrop_path}`} alt="result" />
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -20,6 +24,7 @@ export const SearchResults = ({ data, searchTerm }: SearchProps) => {
               </li>
             </Link>))}
           <ButtonSearch>More films</ButtonSearch>
+          {cleanInput && <p>Buscando...</p>}
         </UlSearchContainer>
       )}
     </>
