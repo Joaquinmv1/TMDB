@@ -1,52 +1,68 @@
-import { categoryUrls } from '../../constants/const'
-import { useEffect, useMemo, useState } from "react"
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from "react";
 import { ShowSearchView } from './ShowSearchView';
+import { data } from "../../services/tmdb.api";
+import { ButtonPagination, ContainerHeroShow, ContainerShow, ContainerSvgs, InputContainer, ShowSearchContainer, Sort, UlContainer } from ".";
+import { AiOutlineSearch, AiTwotoneStar } from "react-icons/ai";
+import { BsBookmark } from "react-icons/bs";
+import { IoMdNotificationsOutline } from "react-icons/io";
+import { Movie } from "../../models/types";
+import { BASE_URL } from "../../constants/const";
+
+const SUM = 'sum';
+const RES = 'res';
 
 export const ShowSearch = () => {
   const [movies, setMovies] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState('movies');
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const searchTerm = searchParams.get('query');
+  const [currentCategory, setCurrentCategory] = useState('movie');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchText, setSearchText] = useState('');
 
-  const cachedResults: { [key: string]: { [key: string]: unknown[] } } = useMemo(() => ({}), []);
+  const fetchData = async (): Promise<void> => {
+    const res = await data(currentCategory, currentPage);
+    console.log(res);
+    setMovies(res.results || []);
+  };
 
-  const getMovies = async () => {
-    let results;
-
-    if (cachedResults[currentCategory] &&
-      searchTerm &&
-      cachedResults[currentCategory][searchTerm]) {
-      results = cachedResults[currentCategory][searchTerm];
+  const pagination = (cal: string): void => {
+    if (cal === SUM) {
+      setCurrentPage(prevState => prevState + 1);
     } else {
-      const url = categoryUrls[currentCategory];
+      setCurrentPage(prevState => prevState - 1);
+    }
+  };
 
-      if (url) {
-        const searchUrl = searchTerm ? `${url}&query=${searchTerm}` : url;
-        const res = await fetch(searchUrl);
-        const json = await res.json();
-        results = json.results;
-        setMovies(json.results);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.target.value);
+  };
 
-        cachedResults[currentCategory] = results;
-      }
+  const filterMovies = (movies: Movie[], searchText: string, currentCategory: string): Movie[] => {
+    if (searchText.trim() === '') {
+      return movies; // Devolver todas las películas cuando el campo de búsqueda está vacío
     }
 
-    return results;
+    return movies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchText.toLowerCase()) && currentCategory === 'movie'
+    );
   };
 
   useEffect(() => {
-    getMovies();
-  }, [currentCategory, searchTerm]);
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const filteredMovies = filterMovies(movies, searchText, currentCategory);
+    setMovies(filteredMovies);
+  }, [searchText, currentCategory]);
 
   return (
-    <>
-      <ShowSearchView
-        movies={movies}
-        currentCategory={currentCategory}
-        setCurrentCategory={setCurrentCategory}
-      />
-    </>
-  )
-}
+    <ShowSearchView
+      movies={movies}
+      pagination={pagination}
+      handleChange={handleChange}
+      currentCategory={currentCategory}
+      currentPage={currentPage}
+      searchText={searchText}
+      setCurrentCategory={setCurrentCategory}
+    />
+  );
+};

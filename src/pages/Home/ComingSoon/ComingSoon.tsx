@@ -1,6 +1,8 @@
 import { AiOutlinePlus } from "react-icons/ai"
 import { CardsComing, ContentComing, Details, Score, SectionComing, Coming, ContainerComing } from "./style"
 import { SlOptionsVertical } from "react-icons/sl"
+import { Link } from "react-router-dom"
+import { LineCategory } from ".."
 
 export const ComingSoon = () => {
   return (
@@ -8,7 +10,9 @@ export const ComingSoon = () => {
       <ContainerComing>
         <Coming>
           <h2>Coming Soon...</h2>
-          <p>More</p>
+          <Link className="link" to='movies'>
+            <p>More</p>
+          </Link>
         </Coming>
         <CardsComing>
           <img src="card-sp.jpg" alt="" />
@@ -21,7 +25,7 @@ export const ComingSoon = () => {
           <ContentComing>
             <h3>Spider Man Across The Spider Verse  (2023)</h3>
             <div style={{ width: '50%', marginBlock: '.5rem', gap: '10px', display: 'flex', flexDirection: 'column' }}>
-              <p>PG | 3h 00min | </p>
+              <p>PG | 3h 00min | Animation </p>
               <p>After meeting Gwen Stacy, the friendly neighborhood full-time Spiderman from Brooklyn, he is catapulted through the multiverse, where he encounters a team of spider people entrusted with protecting their very existence.</p>
             </div>
             <Score>
@@ -39,6 +43,11 @@ export const ComingSoon = () => {
           </ContentComing>
         </SectionComing>
       </ContainerComing>
+      {/* <div style={{display: 'flex', justifyContent: 'center' ,width: '100%'}}>
+        <picture style={{width: '100%'}}>
+          <img src="923d383e-a523-4563-b3a0-9680a9d1adca.png" alt="" />
+        </picture>
+      </div> */}
     </>
   )
 }

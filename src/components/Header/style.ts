@@ -134,6 +134,11 @@ export const Ul = styled.ul`
   display: flex;
   gap: 20px;
   cursor: pointer;
+  transition: .3s ease;
+  
+  li:hover {
+    color: #c2c2c2;
+  }
 `
 
 export const InputSearch = styled.input`

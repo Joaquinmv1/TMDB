@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
+export const LineCategory = styled.div`
+  width: 99%;
+  height: 3px;
+  margin-block: .8rem;
+  background-image: linear-gradient(to left, #213944, #2abdbb);
+`
+
 export const NewPremiersContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   width: 100%;
-  /* margin: 0rem 1rem; */
   
-
   h2{
     font-weight: bold;
     color: #c3c3c3;
@@ -18,17 +23,12 @@ export const NewPremiersContainer = styled.div`
 `
 
 export const ContainerSwiper = styled.div`
-  width: 100%;
-  width: 91%;
-  /* padding: 0 .5%; */
-
-  img {
-    border-radius: 10px;
-  }
+  width: 83%;
+  padding: 0 1rem;
 `
 
 export const ImageCarrousel = styled.img`
-  width: 200px;
+  width: 180px;
   height: 300px;
   object-fit: cover;
   aspect-ratio: 16/9;

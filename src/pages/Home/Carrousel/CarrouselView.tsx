@@ -1,4 +1,4 @@
-import { ContainerSwiper, ImageCarrousel, NewPremiersContainer } from './style';
+import { ContainerSwiper, ImageCarrousel, LineCategory, NewPremiersContainer } from './style';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Movie } from '../../../models/types';
 import { Link } from 'react-router-dom';
@@ -8,19 +8,23 @@ import 'swiper/css/navigation';
 
 interface CarrouselProps {
   category: string;
-  movies: Movie[];
+  movies: Array<Movie> | undefined;
 }
 
 export function CarrouselView({ category, movies }: CarrouselProps) {
   return (
     <NewPremiersContainer>
       <ContainerSwiper>
-      <h2>{category}</h2>
+        {movies &&
+          <div className='line-category'>
+            <h2>{category}</h2>
+            <LineCategory />
+          </div>}
         <Swiper
           slidesPerView={8}
           loop={true}
           direction="horizontal"
-          >
+        >
           {movies?.map((movie: Movie) => (
             <SwiperSlide key={movie.id}>
               <Link to={`${movie.type}/${movie.id}`}>
@@ -37,9 +41,7 @@ export function CarrouselView({ category, movies }: CarrouselProps) {
   );
 }
 
-
-
- // breakpoints={{
+// breakpoints={{
           //   1700: {
           //     slidesPerView: 9,
           //     spaceBetween: 0

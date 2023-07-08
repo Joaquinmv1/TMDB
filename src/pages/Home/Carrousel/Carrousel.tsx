@@ -3,8 +3,7 @@ import { Movie } from "../../../models/types";
 import { CarrouselView } from "./CarrouselView";
 
 interface CarrouselProps {
-  movies: Array<Movie>
-  isLoading: boolean
+  movies: Array<Movie> | undefined
 }
 
 export const Carrousel = ({ movies }: CarrouselProps) => {
@@ -12,7 +11,7 @@ export const Carrousel = ({ movies }: CarrouselProps) => {
     <>
       <section>
         {categoriesCarrousel.map((category) => {
-          const categoryMovies = movies.filter((movie: Movie) => movie.category === category);
+          const categoryMovies = movies?.filter((movie: Movie) => movie.category === category);
           return (
             <CarrouselView key={category} category={category} movies={categoryMovies} />
           );

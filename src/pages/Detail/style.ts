@@ -1,38 +1,47 @@
 import styled from "styled-components";
 
-export const ContainerDetail = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  /* background-attachment: fixed; */
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-  box-Shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+export const Shadow = styled.div`
+  background-color: transparent;
+    background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 15%,hsla(0,0%,8%,.35) 29%,hsla(0,0%,8%,.58) 44%,#141414 68%,#141414);
+    background-position: 0 top;
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    bottom: -1px;
+    height: 14.7vw;
+    opacity: 1;
+    top: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 
-  &::after {
+  /* &::after {
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 300px;
-    /* filter: brightness(0.45) contrast(1.3) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8)); Agrega sombra al componente */
-    background-image: linear-gradient(
-      180deg,
-      hsla(0, 0%, 8%, 0),
-      hsla(0, 0%, 8%, 0.15) 15%,
-      hsla(0, 0%, 8%, 0.35) 29%,
-      hsla(0, 0%, 8%, 0.58) 44%,
-      #141414 68%,
-      #141414
-    );
+    height: 500px;
+    filter: brightness(0.45) contrast(1.3) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8)); 
+   
+    background-color: transparent;
+    background-image: linear-gradient(180deg,hsla(0,0%,8%,0) 0,hsla(0,0%,8%,.15) 15%,hsla(0,0%,8%,.35) 29%,hsla(0,0%,8%,.58) 44%,#141414 68%,#141414);
     z-index: 2;
-
-  }
+  } */
 `;
 
+export const ContainerDetail = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  /* overflow: hidden; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 231213;
+  filter: brightness(.8) contrast(1.1); 
+`;
 
 export const ImageBackground = styled.img`
   min-height: 50vh;

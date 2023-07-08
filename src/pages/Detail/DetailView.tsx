@@ -1,5 +1,5 @@
 import { AiTwotoneStar } from "react-icons/ai"
-import { ContainerDetail, Image, ContainerInfo, ContentRight, ImageBackground, OverviewSection, SectionsList, Loader } from "."
+import { ContainerDetail, Image, ContainerInfo, ContentRight, ImageBackground, OverviewSection, SectionsList, Loader, Shadow } from "."
 import { Components, Genre } from "./types";
 import { Dna } from "react-loader-spinner";
 
@@ -12,13 +12,14 @@ interface Props {
 }
 
 export const DetailView = (props: Props) => {
-  if (!props.isLoading) {
+  if (props.isLoading) {
     return <Loader><Dna /></Loader>
   }
 
   return (
     <>
       <ContainerDetail style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280/${props.detail.data.backdrop_path || props.detail.data.poster_path})` }}>
+        <Shadow />
         {/* <ImageBackground src={`https://image.tmdb.org/t/p/w1280/${props.detail.data.backdrop_path || props.detail.data.poster_path}`} alt={`image banner ${props.detail.data.title}`} /> */}
         <ContainerInfo>
           <Image src={`https://image.tmdb.org/t/p/w500/${props.detail.data.poster_path}`} alt={`image ${props.detail.data.name}`} />
@@ -44,6 +45,7 @@ export const DetailView = (props: Props) => {
             {props.isSelected === 'overview' ? <OverviewSection detail={props.detail} /> : props.sectionComponents[props.isSelected]}
           </ContentRight>
         </ContainerInfo>
+     
       </ContainerDetail>
     </>
   )

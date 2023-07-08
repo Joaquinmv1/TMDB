@@ -14,23 +14,43 @@ export const Coming = styled.div`
   width: 100%;
   justify-content: space-between;
   margin-block: 1rem;
+  padding-inline: .6rem;
+  color: #c3c3c3;
+
+  p{
+    color: #c3c3c3;
+    font-weight: bold;
+    transition: .3s ease;
+  }
+
+  p:hover{
+    color: #fff;
+    transform: scale(1.1);
+  }
+  
 `
 
 export const CardsComing = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  /* flex-wrap: wrap; */
   margin-block: 1rem;
-  /* padding-inline:1.5rem; */
   width: 100%;
-  gap: 20px;
+  gap: 10px;
 
   img {
     width: 24%;
-    height: 550px;
+    height: 500px;
     object-fit: cover;
     object-position: bottom;
-    border-radius: 1rem;
+    /* border-radius: 10px; */
     cursor: pointer;
+    transition: .3s ease;
+  }
+
+  img:hover{
+    transform: scale(1.1);
   }
 `
 

@@ -4,7 +4,8 @@ export const ShowSearchContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  /* z-index: 1;  */
+  position: relative;
+  top: 80px;
 `
 
 export const UlContainer = styled.ul`
@@ -16,10 +17,7 @@ export const UlContainer = styled.ul`
   gap: 15px;
 
   li{
-    /* background-color: rgb(27, 120, 128); */
-    /* background-color: #48c3db; */
     width:20%;
-    /* height: 300px; */
   }
 
   li p{
@@ -31,11 +29,13 @@ export const UlContainer = styled.ul`
 
   img{
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 10px;
+    object-fit: contain;
     cursor: pointer;
+    transition: .3s ease;
+  }
+
+  img:hover{
+    transform: scale(1.1);
   }
 `
 
@@ -77,21 +77,61 @@ export const ContainerSvgs = styled.div`
 `
 
 export const Sort = styled.div`
-  background-color: #191919 ;
-  width: 83.5%;
-  height: 100px;
+  /* background-color: #191919 ; */
+  width: 85%;
+  /* height: 100px; */
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  /* padding:0 3rem; */
   align-items: center;
-  border-radius: .9rem;
 
   select{
-    text-align: start;
     padding: .8rem 3rem;
+    margin-left: 1.4rem;
     border: none;
     outline: none;
     border-color:#282828;
     background-color: #222222 ;
     color: #fff;
+
+    /* border: 1px solid #ccc; */
+    border-radius: 4px;
+  
+    /* appearance: none; */
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  }
+`
+
+export const ButtonPagination = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-block:1rem;
+
+  button{
+    padding:.5rem 1rem;
+    border: none;
+    outline: none;
+    background-color: rgb(72, 195, 219);
+    color: #fff;
+    /* border-radius: 5px; */
+    cursor: pointer;
+  }
+`
+
+export const InputContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  
+  input{
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    position: relative;
+    color: #ffff;
   }
 `

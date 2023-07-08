@@ -38,3 +38,10 @@ export interface Cast {
   name: string;
   profile_path:string
 }
+
+export interface FilterProps {
+  category: string
+  year: string
+  duration: string
+  rate: string
+}
