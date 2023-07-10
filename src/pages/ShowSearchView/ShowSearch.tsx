@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
-import { ShowSearchView } from './ShowSearchView';
-import { data } from "../../services/tmdb.api";
-import { ButtonPagination, ContainerHeroShow, ContainerShow, ContainerSvgs, InputContainer, ShowSearchContainer, Sort, UlContainer } from ".";
-import { AiOutlineSearch, AiTwotoneStar } from "react-icons/ai";
-import { BsBookmark } from "react-icons/bs";
-import { IoMdNotificationsOutline } from "react-icons/io";
 import { Movie } from "../../models/types";
-import { BASE_URL } from "../../constants/const";
+import { data } from "../../services/tmdb.api";
+import { ShowSearchView } from './ShowSearchView';
 
 const SUM = 'sum';
 const RES = 'res';
@@ -37,7 +32,7 @@ export const ShowSearch = () => {
 
   const filterMovies = (movies: Movie[], searchText: string, currentCategory: string): Movie[] => {
     if (searchText.trim() === '') {
-      return movies; // Devolver todas las películas cuando el campo de búsqueda está vacío
+      return movies; 
     }
 
     return movies.filter((movie) =>
