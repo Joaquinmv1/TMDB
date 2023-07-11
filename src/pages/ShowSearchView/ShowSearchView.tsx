@@ -1,12 +1,9 @@
-import { useState } from "react"
 import { AiOutlineSearch, AiTwotoneStar } from "react-icons/ai"
 import { BsBookmark } from "react-icons/bs"
 import { IoMdNotificationsOutline } from "react-icons/io"
-import { ButtonPagination, CarrouselDetail, ContainerSvgs, InputContainer, ShowSearchContainer, Sort, UlContainer } from ".."
+import { CarrouselDetail, ContainerSvgs, InputContainer, ShowSearchContainer, Sort, UlContainer } from ".."
 import { BASE_URL } from "../../constants/const"
 import { Movie } from "../../models/types"
-
-const carrouselImgs = ['black-mirror-cr.jpg', 'harry potter.jpg', 'SPIDER-MAN ACROSS THE SPIDER-VERSE_Thumb.jpg'];
 
 interface Props {
   movies: Movie[];
@@ -16,28 +13,10 @@ interface Props {
   currentPage: number;
   result: string;
   setCurrentCategory: (category: string) => void;
+  moviesRef: any
 }
 
 export const ShowSearchView = (props: Props) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [currentImg, setCurrentImg] = useState(carrouselImgs[0]);
-
-  const disableButton = props.currentPage === 1;
-
-  const selectedImg = () => {
-    const condition = selectedIndex < carrouselImgs.length - 1;
-    const newIndex = condition ? selectedIndex + 1 : 0;
-    setSelectedIndex(newIndex);
-    setCurrentImg(carrouselImgs[selectedIndex]);
-  }
-
-  const previousImg = () => {
-    const condition = selectedIndex > carrouselImgs.length - 1;
-    const newIndex = condition ? selectedIndex - 1 : carrouselImgs.length - 1;
-    setSelectedIndex(newIndex);
-    setCurrentImg(carrouselImgs[selectedIndex]);
-  }
-
   return (
     <>
       <ShowSearchContainer>
@@ -69,9 +48,9 @@ export const ShowSearchView = (props: Props) => {
               <h3 style={{ marginBlock: '1rem', textAlign: 'start' }}>Just Added</h3>
             </div>
             <UlContainer>
-              {props.movies?.map((movie: Movie) => {
+              {props.movies?.map((movie: Movie, i:number) => {
                 return (
-                  <li key={movie.id}>
+                  <li key={`${movie.id} ${i}`}>
                     <img loading='lazy' src={`${BASE_URL}${movie.backdrop_path || movie.poster_path}`} alt="" />
                     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '.5rem' }}>
                       <p>{movie.title || movie.name}</p>
@@ -80,11 +59,12 @@ export const ShowSearchView = (props: Props) => {
                   </li>
                 )
               })}
+            <li style={{height: '100px'}} ref={props.moviesRef}>asdasddas</li>
             </UlContainer>
-            <ButtonPagination>
+            {/* <ButtonPagination>
               {!disableButton && <button onClick={() => props.pagination('res')}>{'<'}</button>}
               <button onClick={() => props.pagination('sum')}>{'>'}</button>
-            </ButtonPagination>
+            </ButtonPagination> */}
           </div>
         </div>
       </ShowSearchContainer>

@@ -55,7 +55,7 @@ export const fetchFilteredData = async ({ category, year, duration, rate }: Filt
   }
 };
 
-export const data = async (media: string, page:number) => {
+export const data = async (media: string, page) => {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/discover/${media}?api_key=${API_KEY}&page=${page}`
