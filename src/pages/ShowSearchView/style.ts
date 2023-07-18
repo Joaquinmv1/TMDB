@@ -57,6 +57,7 @@ export const Sort = styled.div`
   /* height: 100px; */
   display: flex;
   justify-content: space-between;
+  margin-block: 1rem;
   /* padding:0 3rem; */
   align-items: center;
 

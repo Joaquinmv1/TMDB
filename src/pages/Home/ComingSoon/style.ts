@@ -5,7 +5,7 @@ export const ContainerComing = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 80%;
+  width: 83%;
   margin: 0 auto;
 `
 

@@ -18,5 +18,6 @@ export * from './Home/HeroSlide/style';
 export * from './Home';
 export * from './Login';
 export * from './ShowSearchView/CarrouselDetail/CarrouselDetail';
+export * from './ShowSearchView/CarrouselDetail/style';
 export * from './ShowSearchView/Sidebar';
 export * from './ShowSearchView';

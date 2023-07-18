@@ -11,9 +11,8 @@ interface SidebarProps {
 }
 
 const iconMap: Record<string, IconType> = {
-  IoMdHome, // Asigna los nombres de los íconos a los componentes correspondientes
+  IoMdHome, 
   BiCameraMovie,
-  // PiTelevisionSimpleBold
 };
 
 export const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps) => {
@@ -23,9 +22,7 @@ export const Sidebar = ({ selectedCategory, setSelectedCategory }: SidebarProps)
         <HeaderSidebar>
           <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" />
           <h3>Hi, Joaquin!</h3>
-          {/* <img src="onepiece.jpg" alt="header sidebar" /> */}
         </HeaderSidebar>
-        {/* <h3>Nuestras categorias</h3> */}
         <ul>
           {filterOptions.map((value) => {
             const IconComponent = iconMap[value.icon];

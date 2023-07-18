@@ -1,8 +1,7 @@
 import { Search } from "../components";
-import { API_KEY, BASE_URL, categories } from "../constants/const";
+import { API_KEY, categories } from "../constants/const";
 import { FilterProps, Movie } from "../models/types";
 
-// const url = `https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}`;
 export const fetchMoviesByCategory = async () => {
   try {
     const requests = categories.map(async (category) => {
@@ -55,7 +54,7 @@ export const fetchFilteredData = async ({ category, year, duration, rate }: Filt
   }
 };
 
-export const data = async (media: string, page) => {
+export const dataMovies = async (media: string, page:number) => {
   try {
     const response = await fetch(
       `https://api.themoviedb.org/3/discover/${media}?api_key=${API_KEY}&page=${page}`

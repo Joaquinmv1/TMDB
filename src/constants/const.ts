@@ -1,5 +1,3 @@
-import { IoMdHome } from 'react-icons/io'
-
 export const API_KEY = import.meta.env.VITE_PRIVATE_API_KEY;
 export const BASE_URL = 'https://image.tmdb.org/t/p/w500/';
 
@@ -93,4 +91,10 @@ export const modalVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 2 },
   exit: { opacity: 0 }
+};
+
+export const options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: .5
 };

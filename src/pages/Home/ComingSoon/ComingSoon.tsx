@@ -1,8 +1,7 @@
 import { AiOutlinePlus } from "react-icons/ai"
-import { CardsComing, ContentComing, Details, Score, SectionComing, Coming, ContainerComing } from "./style"
 import { SlOptionsVertical } from "react-icons/sl"
 import { Link } from "react-router-dom"
-import { LineCategory } from ".."
+import { CardsComing, Coming, ContainerComing, ContentComing, Details, Score, SectionComing } from "./style"
 
 export const ComingSoon = () => {
   return (

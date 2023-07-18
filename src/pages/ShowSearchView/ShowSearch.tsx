@@ -1,85 +1,78 @@
 import { useEffect, useRef, useState } from "react";
+import { CarrouselDetail, HeaderShow, MoviesList } from ".";
+import { options } from "../../constants/const";
 import { Movie } from "../../models/types";
-import { data } from "../../services/tmdb.api";
+import { dataMovies } from "../../services/tmdb.api";
+import { CategoryList } from "./CategoryList";
 import { ShowSearchView } from './ShowSearchView';
 
-const SUM = 'sum';
-const RES = 'res';
-
-let options = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.5
-};
-
 export const ShowSearch = () => {
-  const [movies, setMovies] = useState<any>([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
   const [currentCategory, setCurrentCategory] = useState('movie');
-  const [currentPage, setCurrentPage] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
   const [searchText, setSearchText] = useState('');
-  const moviesRef = useRef<any>(null);
-
+  const moviesRef = useRef<HTMLLIElement>(null);  
+  
   const fetchData = async (): Promise<void> => {
-    const res = await data(currentCategory, currentPage);
+    const res = await dataMovies(currentCategory, currentPage);
     setMovies(res.results);
   };
 
   const loadMoreMovies = () => {
-    data(currentCategory, currentPage + 1).then((res) => {
+    const newPage = currentPage + 1;
+    dataMovies(currentCategory, newPage).then((res) => {
       setMovies((prev) => [
         ...prev,
         ...res.results
       ]);
-      setCurrentPage(prevCategory => prevCategory + 1)
+      setCurrentPage(prevCategory => prevCategory + 1);
     })
-  }
+  };
 
-  const handleObserver = (entries: any) => {
+  const handleObserver = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         loadMoreMovies();
       }
     })
-  }
+  };
 
-  // const pagination = (cal: string): void => {
-  //   if (cal === SUM) {
-  //     setCurrentPage(prevState => prevState + 1);
-  //   } else {
-  //     setCurrentPage(prevState => prevState - 1);
-  //   }
-  // };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrentCategory(e.target.value);
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentCategory]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleObserver, options)
     if (moviesRef.current) {
-      observer.observe(moviesRef.current)
+      observer.observe(moviesRef.current);
     }
 
-    return () =>{
-      if(moviesRef.current) {
+    return () => {
+      if (moviesRef.current) {
         observer.unobserve(moviesRef.current);
       }
-    } 
-  }, [currentPage])
+    }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage]);
 
   return (
-    <ShowSearchView
-      movies={movies}
-      handleChange={handleChange}
-      currentCategory={currentCategory}
-      currentPage={currentPage}
-      searchText={searchText}
-      setCurrentCategory={setCurrentCategory}
-      moviesRef={moviesRef}
-    />
+    <ShowSearchView>
+      <HeaderShow />
+      <CarrouselDetail />
+      <CategoryList
+        currentCategory={currentCategory}
+        handleChange={handleChange}
+        searchText={searchText}
+      />
+      <MoviesList
+        movies={movies}
+        moviesRef={moviesRef}
+      />
+    </ShowSearchView>
   );
 };
